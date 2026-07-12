@@ -17,6 +17,8 @@ const PLANS = {
 
 const ALLOWED_ORIGINS = [
   'https://elevate-zeven-web.vercel.app',
+  'https://elevatezevenia.com',
+  'https://www.elevatezevenia.com',
   process.env.VITE_SITE_URL,
 ].filter(Boolean)
 

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CaseCard from '../components/CaseCard.astro';
+import TestimonialCard from '../components/TestimonialCard.astro';
 
 const title = 'Casos de Éxito en Automatización con IA | Elevate 7 IA';
 const description =
@@ -30,6 +31,41 @@ const cases = [
   },
 ];
 
+const testimonials = [
+  {
+    name: 'Carlos Rodríguez',
+    role: 'Fundador de SaaS B2B',
+    avatar: 'CR',
+    text: 'Nuestro onboarding era un cuello de botella enorme — todo manual, todo dependía de que alguien estuviera disponible. Construyeron el agente de IA con n8n y Claude API y el proceso simplemente dejó de ser un problema. Funciona solo.',
+    highlight: 'El proceso dejó de depender de que alguien estuviera disponible',
+    color: 'accent' as const,
+  },
+  {
+    name: 'Andrés Morales',
+    role: 'Emprendedor · E-commerce',
+    avatar: 'AM',
+    text: 'Me cansé de hacer seguimiento manualmente. Era agotador y siempre se me iban cosas. Automatizaron el pipeline completo — el sistema califica, nutre y avisa cuando alguien está listo. Yo ya no tengo que perseguir a nadie.',
+    highlight: 'Dejé de perseguir clientes manualmente',
+    color: 'gold' as const,
+  },
+  {
+    name: 'Valentina Cruz',
+    role: 'Directora de Marketing Digital',
+    avatar: 'VC',
+    text: 'El mayor dolor era el tiempo que me tomaba producir contenido. Semanas planeando, grabando, editando. Ahora el sistema genera piezas con mi voz y estilo. Recuperé tiempo que antes simplemente no tenía.',
+    highlight: 'Recuperé tiempo que antes simplemente no tenía',
+    color: 'accent' as const,
+  },
+  {
+    name: 'Sebastián Méndez',
+    role: 'CEO · Agencia de Servicios',
+    avatar: 'SM',
+    text: 'El problema era simple: nadie respondía a tiempo y los prospectos se iban. Implementaron un agente de IA en WhatsApp en 7 días. Ahora hay respuesta inmediata siempre — no importa la hora ni el día.',
+    highlight: 'Ahora hay respuesta inmediata — siempre',
+    color: 'white' as const,
+  },
+];
+
 const breadcrumbSchema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
@@ -55,6 +91,23 @@ const breadcrumbSchema = {
     <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
       {cases.map((c) => (
         <CaseCard sector={c.sector} title={c.title} description={c.description} metrics={c.metrics} />
+      ))}
+    </div>
+  </section>
+
+  <section class="section pt-0">
+    <div class="mb-12 text-center">
+      <span class="eyebrow">Casos reales · Dolores resueltos con IA</span>
+      <h2 class="text-3xl font-bold sm:text-4xl">
+        Problemas reales que <span class="text-accent-400">la IA resolvió</span>
+      </h2>
+      <p class="mx-auto mt-4 max-w-xl text-slate-400">
+        Founders que tenían un dolor operativo concreto — y lo eliminaron implementando IA en su negocio.
+      </p>
+    </div>
+    <div class="grid grid-cols-1 gap-5 md:grid-cols-2">
+      {testimonials.map((t) => (
+        <TestimonialCard name={t.name} role={t.role} avatar={t.avatar} text={t.text} highlight={t.highlight} color={t.color} />
       ))}
     </div>
   </section>

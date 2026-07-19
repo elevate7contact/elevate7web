@@ -1,0 +1,44 @@
+---
+export interface Props {
+  name: string;
+  role: string;
+  avatar: string;
+  text: string;
+  highlight: string;
+  color: 'accent' | 'gold' | 'white';
+}
+
+const { name, role, avatar, text, highlight, color } = Astro.props;
+
+const highlightColor =
+  color === 'accent' ? 'text-accent-400' : color === 'gold' ? 'text-gold-400' : 'text-white';
+const avatarColor =
+  color === 'accent'
+    ? 'bg-accent-500/15 text-accent-400'
+    : color === 'gold'
+      ? 'bg-gold-500/15 text-gold-400'
+      : 'bg-white/10 text-white';
+---
+
+<div class="card flex flex-col gap-5">
+  <div>
+    <p class={`font-display font-semibold text-base mb-3 ${highlightColor}`}>"{highlight}"</p>
+    <p class="text-sm leading-relaxed text-slate-400">{text}</p>
+  </div>
+  <div class="mt-auto flex items-center gap-3 border-t border-white/5 pt-4">
+    <div class={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl font-display font-bold text-sm ${avatarColor}`}>
+      {avatar}
+    </div>
+    <div>
+      <p class="font-display text-sm font-semibold text-white">{name}</p>
+      <p class="text-xs text-slate-500">{role}</p>
+    </div>
+    <div class="ml-auto flex gap-0.5">
+      {Array.from({ length: 5 }).map(() => (
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="#e8b13a">
+          <path d="M6 1l1.4 2.8 3.1.45-2.25 2.2.53 3.1L6 8.1l-2.78 1.45.53-3.1L1.5 4.25l3.1-.45z" />
+        </svg>
+      ))}
+    </div>
+  </div>
+</div>

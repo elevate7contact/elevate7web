@@ -1,0 +1,95 @@
+---
+export interface Props {
+  lang?: 'es' | 'en';
+}
+const { lang = 'es' } = Astro.props;
+
+const year = 2026;
+
+const copy =
+  lang === 'en'
+    ? {
+        tagline: 'AI automation agency helping businesses worldwide implement artificial intelligence in marketing, sales and operations.',
+        columns: [
+          {
+            title: 'Company',
+            links: [
+              { href: '/', label: 'Home' },
+              { href: '/servicios', label: 'Services' },
+              { href: '/nosotros', label: 'About' },
+              { href: '/casos', label: 'Case Studies' },
+            ],
+          },
+          {
+            title: 'Resources',
+            links: [
+              { href: '/blog', label: 'Blog' },
+              { href: '/contacto', label: 'Contact' },
+              { href: '/privacidad', label: 'Privacy Policy' },
+            ],
+          },
+        ],
+        rights: 'All rights reserved.',
+        based: 'Based in Bogotá, Colombia — serving clients worldwide.',
+      }
+    : {
+        tagline:
+          'Agencia de automatización con inteligencia artificial. Implementamos IA en marketing, ventas y operaciones para empresas de cualquier país.',
+        columns: [
+          {
+            title: 'Empresa',
+            links: [
+              { href: '/', label: 'Inicio' },
+              { href: '/servicios', label: 'Servicios' },
+              { href: '/nosotros', label: 'Nosotros' },
+              { href: '/casos', label: 'Casos' },
+            ],
+          },
+          {
+            title: 'Recursos',
+            links: [
+              { href: '/blog', label: 'Blog' },
+              { href: '/contacto', label: 'Contacto' },
+              { href: '/privacidad', label: 'Política de privacidad' },
+            ],
+          },
+        ],
+        rights: 'Todos los derechos reservados.',
+        based: 'Con sede en Bogotá, Colombia — atendemos clientes en todo el mundo.',
+      };
+---
+
+<footer class="border-t border-white/5">
+  <div class="mx-auto max-w-6xl px-6 py-16 sm:px-8">
+    <div class="grid grid-cols-1 gap-12 md:grid-cols-[2fr_1fr_1fr]">
+      <div>
+        <a href="/" class="flex items-center gap-2.5 font-display text-lg font-bold text-white">
+          <img src="/logo.png" alt="Elevate 7 IA" width="28" height="28" class="h-7 w-7 rounded-lg" />
+          Elevate 7 IA
+        </a>
+        <p class="mt-4 max-w-sm text-sm leading-relaxed text-slate-400">{copy.tagline}</p>
+        <p class="mt-4 text-sm text-slate-500">{copy.based}</p>
+      </div>
+
+      {copy.columns.map((col) => (
+        <div>
+          <h3 class="text-sm font-semibold uppercase tracking-wider text-slate-300">{col.title}</h3>
+          <ul class="mt-4 space-y-3">
+            {col.links.map((link) => (
+              <li>
+                <a href={link.href} class="text-sm text-slate-400 transition hover:text-white">
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-12 flex flex-col items-start justify-between gap-4 border-t border-white/5 pt-8 text-xs text-slate-500 sm:flex-row sm:items-center">
+      <p>&copy; {year} Elevate 7 IA. {copy.rights}</p>
+      <p>Bogotá, Colombia</p>
+    </div>
+  </div>
+</footer>

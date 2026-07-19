@@ -1,0 +1,116 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = 'Cómo Elegir una Agencia de Automatización con IA';
+const description =
+  'Qué preguntar, qué señales de alerta evitar y cuánto pagar antes de contratar una agencia de automatización con IA. Agenda tu diagnóstico gratuito con nosotros.';
+const publishedTime = '2026-07-08';
+const modifiedTime = '2026-07-08';
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Cómo Elegir una Agencia de Automatización con IA',
+  description,
+  datePublished: publishedTime,
+  dateModified: modifiedTime,
+  inLanguage: 'es',
+  author: { '@type': 'Organization', name: 'Elevate 7 IA', url: 'https://elevatezevenia.com' },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Elevate 7 IA',
+    logo: { '@type': 'ImageObject', url: 'https://elevatezevenia.com/logo.png' },
+  },
+  mainEntityOfPage: 'https://elevatezevenia.com/blog/como-elegir-agencia-ia',
+  image: 'https://elevatezevenia.com/og-image.jpg',
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://elevatezevenia.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://elevatezevenia.com/blog' },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: 'Cómo Elegir una Agencia de Automatización con IA',
+      item: 'https://elevatezevenia.com/blog/como-elegir-agencia-ia',
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  path="/blog/como-elegir-agencia-ia"
+  ogType="article"
+  articleMeta={{ publishedTime, modifiedTime, author: 'Elevate 7 IA' }}
+  schema={[articleSchema, breadcrumbSchema]}
+>
+  <article class="section max-w-3xl pb-8 pt-20 sm:pt-24">
+    <div class="mb-10 text-center">
+      <span class="eyebrow">Agencias de IA</span>
+      <h1 class="text-4xl font-bold leading-tight sm:text-5xl">
+        Cómo Elegir una Agencia de Automatización con IA
+      </h1>
+      <p class="mt-4 text-sm text-slate-500">Publicado el 8 de julio de 2026 · Elevate 7 IA</p>
+    </div>
+
+    <div class="prose-content space-y-6 text-base leading-relaxed text-slate-300 sm:text-lg">
+      <p>
+        Elegir mal una agencia de automatización con IA no es un error barato. Hemos visto empresas pagar entre $2,000 y $10,000 USD por flujos que nunca llegaron a producción, o que dejaron de funcionar apenas el consultor se fue. El problema casi nunca es la tecnología — n8n, Make, Claude y GPT funcionan bien cuando se implementan correctamente — sino la falta de criterio al elegir con quién trabajar. Esta guía reúne las preguntas, señales de alerta y rangos de precio que debes conocer antes de firmar un contrato.
+      </p>
+
+      <h2 class="pt-4 text-2xl font-bold text-white sm:text-3xl">
+        Las preguntas que debes hacer antes de firmar
+      </h2>
+      <p>
+        Antes de firmar cualquier contrato, hay un grupo de preguntas que separan a una agencia seria de una que solo vende humo. Pide ver el portafolio completo, no solo los dos casos más vistosos de la página web: cuántos proyectos han entregado, en qué industrias y con qué resultados medibles. Pide referencias de al menos dos clientes actuales a quienes puedas contactar directamente — si la agencia se resiste a esto, es una señal en sí misma. Pregunta específicamente por el stack técnico: ¿usan n8n o Make para la orquestación de flujos? ¿Qué modelo de IA usan para los agentes — Claude de Anthropic, GPT de OpenAI, o ambos según el caso? Una agencia técnica seria tiene una respuesta clara y justificada, no una lista de buzzwords. Y la pregunta más importante, que casi nadie hace: ¿quién construye el flujo en la práctica? Muchas agencias venden con un equipo senior y ejecutan con freelancers subcontratados sin supervisión. Pregunta quién es la persona que va a diseñar y mantener tu automatización, y pide hablar con ella antes de firmar.
+      </p>
+
+      <h2 class="pt-4 text-2xl font-bold text-white sm:text-3xl">Señales de alerta que debes evitar</h2>
+      <p>
+        Hay patrones que se repiten en las agencias que terminan defraudando a sus clientes. El primero es la promesa de resultados irreales: nadie puede garantizar "ahorra 40 horas semanales" o "300% más leads" sin conocer tu operación primero — cualquier cifra ofrecida antes del diagnóstico es marketing, no un compromiso real. El segundo es la falta de transparencia en precios: si la agencia evita dar un rango claro o solo habla de "cotización personalizada" sin explicar qué la determina, cuidado. El tercero es la ausencia de casos verificables: capturas de pantalla sin nombre de cliente, testimonios genéricos o portafolios con proyectos que no puedes confirmar. El cuarto, cada vez más común, son agencias de marketing o de diseño web que se renombraron como "agencia de IA" hace unos meses sin tener entrega técnica real detrás — ofrecen estrategia y creatividad, pero no saben construir ni mantener un flujo de automatización funcionando en producción.
+      </p>
+
+      <h2 class="pt-4 text-2xl font-bold text-white sm:text-3xl">
+        Cuánto es razonable pagar por una agencia de automatización con IA
+      </h2>
+      <p>
+        Los precios varían según la complejidad, pero hay rangos de referencia que te ayudan a detectar una cotización fuera de lugar. Una automatización básica — un flujo con pocas integraciones y lógica simple, por ejemplo calificación de leads o respuestas automáticas — suele estar entre $500 y $800 USD mensuales con una agencia especializada. Proyectos con agentes de IA, múltiples integraciones y reportes personalizados están en el rango de $1,500 a $5,000 USD según alcance. Desconfía de cotizaciones extremadamente bajas: por debajo de esos rangos es difícil sostener soporte y mantenimiento real. Desconfía también de cotizaciones muy altas sin justificación clara de qué incluyen. Prefiere una tarifa mensual fija con alcance definido sobre el cobro por hora sin límite — te da previsibilidad y obliga a la agencia a ser eficiente.
+      </p>
+
+      <h2 class="pt-4 text-2xl font-bold text-white sm:text-3xl">Preguntas sobre el proceso de trabajo</h2>
+      <p>
+        La forma en que una agencia trabaja día a día dice tanto como su portafolio. Pregunta si trabajan por sprints o entregables semanales visibles, o si vas a recibir novedades solo al final del proyecto — lo segundo suele esconder falta de avance real. Pregunta qué pasa después del lanzamiento: ¿cuántas semanas o meses de soporte incluye el contrato antes de que cualquier ajuste se cobre aparte? Un flujo de automatización necesita afinarse con datos reales de las primeras semanas, así que un período de soporte post-lanzamiento de al menos 30 días es razonable esperar. Pregunta también por la documentación: ¿te entregan un diagrama del flujo, accesos a las herramientas y una sesión de capacitación para tu equipo, o quedas dependiendo de ellos para siempre? Una agencia que no quiere que entiendas tu propio sistema está optimizando para la dependencia, no para tu resultado.
+      </p>
+
+      <h2 class="pt-4 text-2xl font-bold text-white sm:text-3xl">
+        Agencia generalista vs. agencia especializada en IA
+      </h2>
+      <p>
+        En los últimos dos años, muchas agencias de marketing digital y desarrollo web agregaron "IA" a su lista de servicios sin cambiar su forma de trabajar. La diferencia se nota rápido: una agencia generalista piensa en la IA como una función más dentro de una propuesta de marketing o de sitio web. Una agencia especializada en automatización — como Elevate 7 IA — parte de un diagnóstico técnico de tus procesos, diseña el flujo con las herramientas correctas para tu caso (n8n o Make, Claude o GPT según la tarea) y mide el resultado en horas ahorradas o conversión, no en entregables genéricos. Si tu prioridad es automatizar procesos reales de tu operación, una agencia especializada entiende mejor los riesgos técnicos y las excepciones que un generalista suele pasar por alto.
+      </p>
+
+      <h2 class="pt-4 text-2xl font-bold text-white sm:text-3xl">Checklist final antes de contratar</h2>
+      <p>
+        Antes de firmar, verifica que puedas responder "sí" a cada uno de estos puntos:
+      </p>
+      <ul class="list-disc space-y-2 pl-5">
+        <li>Portafolio verificable con al menos tres casos y clientes a los que puedas contactar directamente.</li>
+        <li>Explicación clara del stack técnico (n8n o Make, Claude o GPT) y por qué lo eligieron para tu caso específico.</li>
+        <li>Rango de precio transparente y coherente con el alcance propuesto, sin cifras infladas ni sospechosamente bajas.</li>
+        <li>Sabes exactamente quién construye y quién mantiene el flujo una vez lanzado.</li>
+        <li>Entregables visibles cada semana, no solo un informe al final del proyecto.</li>
+        <li>Al menos 30 días de soporte post-lanzamiento incluidos en el contrato.</li>
+        <li>Documentación completa y capacitación para tu equipo al cierre del proyecto.</li>
+      </ul>
+
+      <p>
+        Elegir la agencia correcta es la decisión que determina si tu inversión en automatización se traduce en horas ahorradas y procesos que funcionan solos, o en otro proyecto de IA que queda a medias. En Elevate 7 IA trabajamos 100% remoto con clientes en cualquier país, y antes de proponer cualquier implementación hacemos un diagnóstico gratuito de tus procesos. Puedes <a href="/contacto" class="text-brand-300 hover:underline">agendar una llamada aquí</a>.
+      </p>
+    </div>
+  </article>
+</BaseLayout>

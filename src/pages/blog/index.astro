@@ -1,0 +1,86 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BlogCard from '../../components/BlogCard.astro';
+
+const title = 'Blog — Automatización con IA para Empresas | Elevate 7 IA';
+const description =
+  'Guías prácticas sobre automatización con IA, agentes inteligentes y marketing con inteligencia artificial para empresas.';
+
+const posts = [
+  {
+    title: 'Automatización con IA para Empresas: guía práctica 2026',
+    description:
+      'Qué es la automatización con IA, cuáles son los procesos con mayor ROI y cómo implementarla paso a paso en tu empresa.',
+    href: '/blog/automatizacion-ia-empresas',
+    date: '2026-07-01',
+    lang: 'ES' as const,
+  },
+  {
+    title: 'Cómo Elegir una Agencia de Automatización con IA',
+    description:
+      'Las preguntas correctas, las señales de alerta y los criterios reales para evaluar a una agencia de IA antes de contratarla.',
+    href: '/blog/como-elegir-agencia-ia',
+    date: '2026-07-08',
+    lang: 'ES' as const,
+  },
+  {
+    title: 'Cómo Implementar IA en tu Empresa Paso a Paso',
+    description:
+      'Un roadmap concreto de diagnóstico, priorización, implementación y medición para llevar IA a tus procesos sin fricción.',
+    href: '/blog/como-implementar-ia-empresa',
+    date: '2026-07-10',
+    lang: 'ES' as const,
+  },
+  {
+    title: 'Automatización con IA en Colombia: Guía para Empresas',
+    description:
+      'El panorama de adopción de IA en empresas colombianas, marcos regulatorios, y cómo empezar con presupuestos realistas.',
+    href: '/blog/automatizacion-ia-colombia',
+    date: '2026-07-14',
+    lang: 'ES' as const,
+  },
+  {
+    title: 'What an AI Automation Agency Actually Does',
+    description:
+      'A practical breakdown of AI automation services, pricing models, and how to evaluate an agency before you sign a contract.',
+    href: '/blog/ai-automation-agency',
+    date: '2026-07-16',
+    lang: 'EN' as const,
+  },
+];
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://elevatezevenia.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://elevatezevenia.com/blog' },
+  ],
+};
+---
+
+<BaseLayout title={title} description={description} path="/blog" schema={breadcrumbSchema}>
+  <section class="section pb-8 pt-20 sm:pt-24">
+    <div class="mx-auto max-w-3xl text-center">
+      <span class="eyebrow">Blog</span>
+      <h1 class="text-4xl font-bold leading-tight sm:text-5xl">Blog — Automatización con IA para Empresas</h1>
+      <p class="mx-auto mt-6 max-w-2xl text-lg text-slate-400">
+        Guías prácticas, sin relleno, sobre cómo implementar inteligencia artificial en procesos reales de negocio.
+      </p>
+    </div>
+  </section>
+
+  <section class="section pt-8">
+    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {posts.map((post) => (
+        <BlogCard
+          title={post.title}
+          description={post.description}
+          href={post.href}
+          date={post.date}
+          lang={post.lang}
+        />
+      ))}
+    </div>
+  </section>
+</BaseLayout>

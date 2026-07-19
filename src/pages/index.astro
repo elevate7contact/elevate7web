@@ -1,0 +1,194 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+
+const title = 'AI Automation Agency for Business Growth | Elevate 7 IA';
+const description =
+  'We implement AI in your marketing, sales and operations. Measurable results in 30 days. Remote-first agency serving clients worldwide.';
+
+const faqs = [
+  {
+    question: '¿Qué es una agencia de automatización con IA?',
+    answer:
+      'Una agencia de automatización con IA diseña e implementa sistemas que eliminan tareas manuales repetitivas usando inteligencia artificial. Esto incluye flujos automatizados que mueven datos entre sistemas, agentes que califican leads sin intervención humana, campañas publicitarias que se optimizan automáticamente y reportes que se generan sin trabajo manual. En Elevate 7 IA trabajamos con empresas de cualquier país para integrar estas soluciones de forma práctica, con resultados medibles desde las primeras semanas.',
+  },
+  {
+    question: '¿Cuánto cuesta implementar automatización con IA?',
+    answer:
+      'El costo depende del alcance. Proyectos de automatización básica — flujos en n8n, agente de calificación de leads, integración de CRM — parten desde $500 USD mensuales. Proyectos más complejos con múltiples agentes, integraciones a medida y dashboards automatizados se cotizan por alcance tras una sesión diagnóstica gratuita. Trabajamos con modelo de tarifa fija mensual, sin sorpresas ni costos variables.',
+  },
+  {
+    question: '¿Qué herramientas de IA usan para automatizar procesos?',
+    answer:
+      'Nuestro stack principal incluye n8n y Make para orquestación de flujos, la API de Claude (Anthropic) y OpenAI para agentes inteligentes, Google Ads y Meta para campañas de marketing optimizadas con IA, y Looker Studio con BigQuery para reportes y dashboards automáticos. Cada implementación usa las herramientas que mejor se integran con los sistemas que el cliente ya tiene, minimizando fricciones de adopción.',
+  },
+  {
+    question: '¿Trabajan con empresas de cualquier país?',
+    answer:
+      'Sí. Operamos de forma 100% remota y atendemos clientes en cualquier país. Tenemos experiencia con empresas en Latinoamérica, España y Estados Unidos. El idioma de trabajo es español o inglés según la preferencia del cliente. La diferencia horaria nunca ha sido un obstáculo — trabajamos con sprints semanales y entregables asíncronos que funcionan independientemente de la zona horaria.',
+  },
+  {
+    question: '¿En qué industrias tienen experiencia?',
+    answer:
+      'Tenemos experiencia comprobada en salud y clínicas privadas, educación universitaria e institutos, servicios financieros y préstamos, empresas SaaS, sector inmobiliario, y manufactura e industria. En todos los casos el punto de partida es el mismo: identificar los procesos de mayor volumen y menor valor agregado para automatizarlos primero, y medir el impacto antes de escalar.',
+  },
+];
+
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Elevate 7 IA',
+  url: 'https://elevatezevenia.com',
+  logo: 'https://elevatezevenia.com/logo.png',
+  description:
+    'AI automation agency helping businesses worldwide implement artificial intelligence in marketing, sales and operations. Based in Bogotá, Colombia.',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Bogotá',
+    addressCountry: 'CO',
+  },
+  areaServed: 'Worldwide',
+  serviceType: [
+    'AI Automation',
+    'AI Agents',
+    'Marketing Automation',
+    'Data Analytics Automation',
+    'AI Consulting',
+  ],
+};
+
+const professionalServiceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'Elevate 7 IA',
+  description:
+    'AI automation agency for businesses worldwide. Specializing in process automation, AI agents, and performance marketing with AI.',
+  url: 'https://elevatezevenia.com',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Bogotá',
+    addressRegion: 'Cundinamarca',
+    addressCountry: 'CO',
+  },
+  areaServed: 'Worldwide',
+  priceRange: '$$',
+  openingHours: 'Mo-Fr 09:00-18:00',
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answer,
+    },
+  })),
+};
+
+const industries = [
+  { name: 'Salud', description: 'Automatizamos agendamiento de citas, calificación de consultas y seguimiento de pacientes con agentes de IA disponibles 24 horas.' },
+  { name: 'Educación', description: 'Optimizamos captación de estudiantes y reportes de campañas con pipelines de datos que eliminan el trabajo manual de análisis.' },
+  { name: 'Servicios financieros', description: 'Implementamos calificación automática de solicitudes y campañas de performance con señales de conversión limpias.' },
+  { name: 'SaaS', description: 'Construimos agentes de onboarding, soporte de primer nivel y reportes de producto que escalan sin sumar headcount.' },
+  { name: 'Real estate', description: 'Automatizamos calificación de leads inmobiliarios y exploramos tokenización de activos para nuevos modelos de inversión.' },
+  { name: 'Industrial', description: 'Integramos IA en reportes de producción y flujos de datos entre sistemas ERP para decisiones más rápidas.' },
+];
+
+const services = [
+  { number: '01', title: 'Automatización de Procesos', description: 'Flujos con n8n y Make que conectan tus aplicaciones y eliminan la copia manual de datos.' },
+  { number: '02', title: 'Agentes de IA', description: 'Agentes con Claude y OpenAI que califican leads, responden consultas y analizan documentos sin intervención humana.' },
+  { number: '03', title: 'Marketing con IA', description: 'Campañas de Google Ads y Meta optimizadas con inteligencia artificial para mejor ROAS y menor CPA.' },
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  path="/"
+  schema={[organizationSchema, professionalServiceSchema, faqSchema]}
+>
+  <!-- Hero -->
+  <section class="section pb-16 pt-20 sm:pt-28">
+    <div class="mx-auto max-w-4xl text-center">
+      <span class="eyebrow">Agencia de Automatización con IA · Remoto, cualquier país</span>
+      <h1 class="text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
+        Implementamos Inteligencia Artificial en tu Empresa. Resultados Medibles en 30 Días.
+      </h1>
+      <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-slate-400">
+        Convertimos procesos manuales en sistemas inteligentes. Automatización con IA para marketing, ventas y operaciones — sin fricciones técnicas para tu equipo.
+      </p>
+      <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <a href="/contacto" class="btn-primary">Agenda una llamada gratuita</a>
+        <a href="/casos" class="btn-secondary">Ver casos de éxito</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Qué hacemos -->
+  <section class="section pt-0">
+    <div class="card mx-auto max-w-4xl">
+      <span class="eyebrow">Qué hacemos</span>
+      <p class="text-base leading-relaxed text-slate-300 sm:text-lg">
+        Elevate 7 IA diseña e implementa soluciones de inteligencia artificial para empresas que quieren escalar sin sumar personal. Trabajamos de forma 100% remota con clientes en cualquier país. Nuestro stack incluye automatización de flujos con n8n y Make, agentes de IA construidos sobre Claude y OpenAI, optimización de campañas Google Ads y Meta con inteligencia artificial, y pipelines de datos automatizados con Looker Studio y BigQuery. Cada implementación parte de un diagnóstico de procesos real y termina con métricas claras que demuestran el impacto. No vendemos tecnología por la tecnología — implementamos lo que genera retorno medible en el menor tiempo posible.
+      </p>
+    </div>
+  </section>
+
+  <!-- Servicios teaser -->
+  <section class="section pt-0">
+    <div class="mb-12 text-center">
+      <span class="eyebrow">Servicios</span>
+      <h2 class="text-3xl font-bold sm:text-4xl">Tres frentes, un mismo objetivo: resultados medibles</h2>
+    </div>
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+      {services.map((service) => (
+        <ServiceCard number={service.number} title={service.title} description={service.description} />
+      ))}
+    </div>
+    <div class="mt-10 text-center">
+      <a href="/servicios" class="btn-secondary">Ver todos los servicios</a>
+    </div>
+  </section>
+
+  <!-- Industrias -->
+  <section class="section pt-0">
+    <div class="mb-12 text-center">
+      <span class="eyebrow">Industrias</span>
+      <h2 class="text-3xl font-bold sm:text-4xl">Experiencia comprobada en múltiples sectores</h2>
+    </div>
+    <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {industries.map((industry) => (
+        <div class="rounded-2xl border border-white/10 bg-white/[0.02] p-6">
+          <h3 class="text-lg font-semibold text-white">{industry.name}</h3>
+          <p class="mt-2 text-sm leading-relaxed text-slate-400">{industry.description}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- CTA banda -->
+  <section class="section pt-0">
+    <div class="card mx-auto flex max-w-4xl flex-col items-center gap-6 text-center sm:flex-row sm:justify-between sm:text-left">
+      <div>
+        <h2 class="text-2xl font-bold sm:text-3xl">¿Listo para automatizar tu empresa?</h2>
+        <p class="mt-2 text-slate-400">Diagnóstico inicial gratuito. Sin compromiso.</p>
+      </div>
+      <a href="/contacto" class="btn-primary whitespace-nowrap">Hablemos</a>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section pt-0">
+    <div class="mb-12 text-center">
+      <span class="eyebrow">Preguntas frecuentes</span>
+      <h2 class="text-3xl font-bold sm:text-4xl">Todo lo que necesitas saber</h2>
+    </div>
+    <div class="mx-auto max-w-3xl">
+      <FAQAccordion items={faqs} />
+    </div>
+  </section>
+</BaseLayout>

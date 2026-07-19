@@ -1,0 +1,123 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
+
+const title = 'AI Automation Services for Business | Elevate 7 IA';
+const description =
+  'Process automation, AI agents, marketing with AI, and automated analytics. We serve businesses worldwide with measurable results.';
+
+const services = [
+  {
+    title: 'Automatización de Procesos con n8n y Make',
+    description:
+      'Flujos que conectan aplicaciones, eliminan la copia manual de datos y disparan acciones automáticas basadas en eventos. Casos típicos: calificación de leads, envío de reportes, sincronización entre CRM y otras herramientas. El equipo cliente no necesita conocimientos técnicos para operar el sistema una vez implementado. Entregamos documentación completa y sesión de capacitación incluida.',
+  },
+  {
+    title: 'Agentes de IA con Claude y OpenAI',
+    description:
+      'Agentes que leen, razonan y actúan sin intervención humana. Casos: calificación de prospectos por WhatsApp o email, respuesta automática a consultas frecuentes, análisis de documentos y contratos, generación de reportes narrativos. A diferencia de un chatbot de reglas fijas, un agente de IA entiende contexto, maneja excepciones y mejora con el tiempo.',
+  },
+  {
+    title: 'Marketing con IA — Google Ads y Meta',
+    description:
+      'Gestión de campañas de performance con estructura Smart Bidding optimizada, keyword research asistido por IA, copy de anuncios generado y testeado sistemáticamente, y audiencias construidas con datos propios del cliente. Resultado: mejor ROAS, menor CPA, menos tiempo del equipo en optimizaciones manuales. Experiencia en mercados de habla hispana e inglesa.',
+  },
+  {
+    title: 'Reportes y Dashboards Automáticos',
+    description:
+      'Pipelines de datos con BigQuery y Looker Studio que se actualizan automáticamente. Alertas por Slack o email cuando una métrica cae fuera del rango esperado. El equipo deja de armar reportes manuales en Excel y empieza a tomar decisiones con datos en tiempo real. Configuración única, mantenimiento mínimo.',
+  },
+  {
+    title: 'Integración de IA en Sistemas Existentes',
+    description:
+      'Conexión de LLMs como Claude o GPT a los sistemas que la empresa ya usa — ERP, CRM, Google Sheets, WhatsApp Business API, bases de datos propias. No reemplazamos lo que funciona: sumamos inteligencia encima de la infraestructura existente, minimizando el cambio para el equipo.',
+  },
+  {
+    title: 'Tokenización de Activos en Blockchain',
+    description:
+      'Representación digital de activos reales — inmuebles, derechos contractuales, participaciones en proyectos — en la red Polygon. Modelo de tarifa fija por proyecto. Orientado a empresas de real estate, fondos de inversión y emprendedores que buscan liquidez y fraccionamiento de activos sin intermediarios tradicionales.',
+  },
+];
+
+const faqs = [
+  {
+    question: '¿En cuánto tiempo se implementa una automatización?',
+    answer:
+      'Los proyectos de automatización básica (un flujo en n8n con 3-5 integraciones) se entregan en 1-2 semanas. Implementaciones más complejas con agentes de IA y múltiples integraciones toman entre 3 y 6 semanas. Trabajamos en sprints semanales con entregables visibles desde la primera semana — el cliente nunca está esperando sin ver avances.',
+  },
+  {
+    question: '¿Necesito conocimientos técnicos para operar las automatizaciones?',
+    answer:
+      'No. El objetivo es que el equipo cliente opere el sistema sin necesidad de conocimientos técnicos. Entregamos documentación clara, sesión de capacitación y soporte post-lanzamiento de 30 días incluido en todos los proyectos. Si algo falla o necesita ajuste, lo resolvemos nosotros sin costo adicional durante ese período.',
+  },
+  {
+    question: '¿Cómo miden el impacto de una implementación?',
+    answer:
+      'Definimos métricas de éxito antes de empezar: horas eliminadas de trabajo manual, reducción en tiempo de respuesta a clientes, mejora en tasa de conversión de leads, o la métrica específica que mueve el negocio en ese proceso. Cada implementación incluye un dashboard donde el cliente ve el impacto en tiempo real, no solo en el reporte mensual.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+  })),
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://elevatezevenia.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Servicios', item: 'https://elevatezevenia.com/servicios' },
+  ],
+};
+---
+
+<BaseLayout title={title} description={description} path="/servicios" schema={[faqSchema, breadcrumbSchema]}>
+  <section class="section pb-12 pt-20 sm:pt-24">
+    <div class="mx-auto max-w-3xl text-center">
+      <span class="eyebrow">Servicios</span>
+      <h1 class="text-4xl font-bold leading-tight sm:text-5xl">
+        Servicios de Automatización con Inteligencia Artificial
+      </h1>
+      <p class="mx-auto mt-6 max-w-2xl text-lg text-slate-400">
+        Seis frentes de trabajo, un mismo criterio: implementar lo que genera retorno medible, sin fricción para tu equipo.
+      </p>
+    </div>
+  </section>
+
+  <section class="section pt-0">
+    <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+      {services.map((service) => (
+        <div class="card">
+          <h2 class="text-xl font-semibold text-white sm:text-2xl">{service.title}</h2>
+          <p class="mt-4 text-sm leading-relaxed text-slate-400 sm:text-base">{service.description}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section pt-0">
+    <div class="card mx-auto flex max-w-4xl flex-col items-center gap-6 text-center sm:flex-row sm:justify-between sm:text-left">
+      <div>
+        <h2 class="text-2xl font-bold sm:text-3xl">¿No sabes por dónde empezar?</h2>
+        <p class="mt-2 text-slate-400">Hacemos un diagnóstico gratuito y te decimos qué automatizar primero.</p>
+      </div>
+      <a href="/contacto" class="btn-primary whitespace-nowrap">Agenda tu diagnóstico</a>
+    </div>
+  </section>
+
+  <section class="section pt-0">
+    <div class="mb-12 text-center">
+      <span class="eyebrow">Preguntas frecuentes</span>
+      <h2 class="text-3xl font-bold sm:text-4xl">Sobre nuestros servicios</h2>
+    </div>
+    <div class="mx-auto max-w-3xl">
+      <FAQAccordion items={faqs} />
+    </div>
+  </section>
+</BaseLayout>

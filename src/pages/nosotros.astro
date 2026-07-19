@@ -1,0 +1,76 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'Sobre Elevate 7 IA — Agencia de Automatización con IA';
+const description =
+  'Conoce el equipo detrás de Elevate 7 IA. Especialistas en automatización con inteligencia artificial para empresas. Operamos de forma remota a nivel mundial.';
+
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Juan',
+  jobTitle: 'Founder & AI Automation Specialist',
+  worksFor: { '@type': 'Organization', name: 'Elevate 7 IA' },
+  address: { '@type': 'PostalAddress', addressLocality: 'Bogotá', addressCountry: 'CO' },
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://elevatezevenia.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Nosotros', item: 'https://elevatezevenia.com/nosotros' },
+  ],
+};
+---
+
+<BaseLayout title={title} description={description} path="/nosotros" schema={[personSchema, breadcrumbSchema]}>
+  <section class="section pb-12 pt-20 sm:pt-24">
+    <div class="mx-auto max-w-3xl text-center">
+      <span class="eyebrow">Nosotros</span>
+      <h1 class="text-4xl font-bold leading-tight sm:text-5xl">Sobre Elevate 7 IA</h1>
+    </div>
+  </section>
+
+  <section class="section pt-0">
+    <div class="mx-auto max-w-3xl space-y-8">
+      <div class="card">
+        <h2 class="text-xl font-semibold text-white sm:text-2xl">Quiénes somos</h2>
+        <p class="mt-4 text-base leading-relaxed text-slate-300">
+          Elevate 7 IA es una agencia especializada en automatización con inteligencia artificial. Trabajamos de forma 100% remota con empresas en cualquier parte del mundo. Nuestro origen está en Bogotá, Colombia, y eso nos da una perspectiva práctica: sabemos lo que significa implementar tecnología avanzada en entornos con recursos limitados, equipos pequeños y presión por resultados rápidos.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2 class="text-xl font-semibold text-white sm:text-2xl">El founder</h2>
+        <p class="mt-4 text-base leading-relaxed text-slate-300">
+          Juan, fundador de Elevate 7 IA, tiene experiencia en performance marketing (Google Ads, Meta) y automatización con IA para empresas en múltiples industrias. Ha gestionado campañas para clientes en salud, educación, servicios financieros, real estate e industria — tanto en mercados de habla hispana como en el mercado estadounidense. Esa combinación de marketing de performance e IA es el núcleo de lo que hace diferente a Elevate 7 IA.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2 class="text-xl font-semibold text-white sm:text-2xl">Filosofía de trabajo</h2>
+        <p class="mt-4 text-base leading-relaxed text-slate-300">
+          No creemos en proyectos de IA teóricos que tardan meses en ver resultados. Cada implementación parte de un proceso real con un problema medible, se construye en sprints de dos semanas y se evalúa con métricas definidas antes de empezar. Si en las primeras cuatro semanas no hay un resultado visible, algo está mal en el diagnóstico — y lo corregimos.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2 class="text-xl font-semibold text-white sm:text-2xl">Modelo remoto</h2>
+        <p class="mt-4 text-base leading-relaxed text-slate-300">
+          Operamos de forma completamente asíncrona y remota. Hemos trabajado con clientes en zonas horarias distintas sin que eso haya sido un obstáculo. Los sprints semanales, la documentación clara y los entregables concretos hacen que la distancia no importe. Lo que importa son los resultados.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section pt-0">
+    <div class="card mx-auto flex max-w-3xl flex-col items-center gap-6 text-center sm:flex-row sm:justify-between sm:text-left">
+      <div>
+        <h2 class="text-2xl font-bold sm:text-3xl">Hablemos de tu empresa</h2>
+        <p class="mt-2 text-slate-400">Agenda una llamada y conversemos sobre tus procesos.</p>
+      </div>
+      <a href="/contacto" class="btn-primary whitespace-nowrap">Contactar</a>
+    </div>
+  </section>
+</BaseLayout>

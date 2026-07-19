@@ -1,0 +1,101 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = 'AI Automation Agency: What They Actually Deliver';
+const description =
+  'A real AI automation agency delivers workflow automation, AI agents, and measurable ROI — not hype. See what to expect, pricing, and book a free call.';
+const publishedTime = '2026-07-16';
+const modifiedTime = '2026-07-16';
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'AI Automation Agency: What They Actually Deliver',
+  description,
+  datePublished: publishedTime,
+  dateModified: modifiedTime,
+  inLanguage: 'en',
+  author: { '@type': 'Organization', name: 'Elevate 7 IA', url: 'https://elevatezevenia.com' },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Elevate 7 IA',
+    logo: { '@type': 'ImageObject', url: 'https://elevatezevenia.com/logo.png' },
+  },
+  mainEntityOfPage: 'https://elevatezevenia.com/blog/ai-automation-agency',
+  image: 'https://elevatezevenia.com/og-image.jpg',
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://elevatezevenia.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://elevatezevenia.com/blog' },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: 'AI Automation Agency: What They Actually Deliver',
+      item: 'https://elevatezevenia.com/blog/ai-automation-agency',
+    },
+  ],
+};
+---
+
+<BaseLayout
+  lang="en"
+  title={title}
+  description={description}
+  path="/blog/ai-automation-agency"
+  ogType="article"
+  articleMeta={{ publishedTime, modifiedTime, author: 'Elevate 7 IA' }}
+  schema={[articleSchema, breadcrumbSchema]}
+>
+  <article class="section max-w-3xl pb-8 pt-20 sm:pt-24">
+    <div class="mb-10 text-center">
+      <span class="eyebrow">AI Automation</span>
+      <h1 class="text-4xl font-bold leading-tight sm:text-5xl">
+        AI Automation Agency: What They Actually Deliver
+      </h1>
+      <p class="mt-4 text-sm text-slate-500">Published July 16, 2026 · Elevate 7 IA</p>
+    </div>
+
+    <div class="prose-content space-y-6 text-base leading-relaxed text-slate-300 sm:text-lg">
+      <p>
+        AI automation agencies are everywhere in 2026. Search the term and you'll find serious technical shops sitting next to marketing agencies that added a chatbot demo to their homepage and rebranded overnight. The gap between the two is enormous, and most buyers can't tell them apart until months into a contract that delivered little more than a basic connector dressed up as "AI." This article breaks down what a real AI automation agency actually builds, how pricing works, which questions expose the difference, and the red flags that save you a wasted budget.
+      </p>
+
+      <h2 class="pt-4 text-2xl font-bold text-white sm:text-3xl">
+        What services an AI automation agency actually provides
+      </h2>
+      <p>
+        A real AI automation agency works across four layers, not just one. The first is workflow automation, built with tools like n8n or Make: connecting your CRM, inbox, calendar, and internal tools so data moves between them without a person copying and pasting. A concrete example is a lead that fills out a form, gets logged in the CRM, triggers a Slack alert, and receives a personalized email — all within seconds, with zero manual steps. The second layer is AI agents built on Claude or OpenAI models, deployed for tasks that require judgment: qualifying inbound leads by reading their message against your ideal customer profile, or handling first-line customer support questions before escalating to a human. The third layer is AI-optimized paid marketing — running Google Ads and Meta campaigns tuned with AI-driven bidding and audience signals so spend targets the leads most likely to convert, not just the cheapest clicks. The fourth is automated reporting: pulling data into BigQuery and visualizing it in Looker Studio so you see real performance weekly instead of waiting on a spreadsheet someone forgot to update.
+      </p>
+
+      <h2 class="pt-4 text-2xl font-bold text-white sm:text-3xl">How pricing typically works</h2>
+      <p>
+        Pricing for AI automation work generally follows one of two models: a monthly retainer or a fixed project fee. Retainers make sense when the scope will keep evolving — new automations added as you find more processes worth automating — and typically run $500-800 per month for a single workflow with basic logic, up to $1,500-5,000 per month for multi-agent systems with several integrations, custom dashboards, and ongoing optimization. Project-based pricing works better for a single well-defined deliverable, like migrating one specific process from manual to automated, with a fixed scope and fixed price agreed upfront. What matters more than the model itself is transparency: a serious agency quotes a fixed fee or a clearly bounded retainer before starting, not an open-ended hourly rate that lets costs drift. If a quote changes after the diagnostic call without a clear reason tied to expanded scope, that's a sign to ask more questions.
+      </p>
+
+      <h2 class="pt-4 text-2xl font-bold text-white sm:text-3xl">Questions to ask before you hire one</h2>
+      <p>
+        Before signing anything, ask for case studies with real, verifiable metrics — hours saved, response time reduced, conversion rate improved — not vague claims like "increased efficiency." Ask exactly which tools they use and why: an agency that can explain when they'd choose n8n over Make, or Claude over OpenAI for a specific task, understands the tradeoffs rather than defaulting to whatever they know best. Ask who actually builds the automation versus who you'll be talking to day to day — some agencies run a polished sales team and outsource the technical build to contractors with no real accountability to the client relationship. Ask what happens after launch: does support end at handoff, or is there a defined window for fixes, monitoring, and adjustments as your process changes? A team that answers these four questions specifically, with names, tools, and numbers, is worth a serious conversation. One that answers only in marketing language is not.
+      </p>
+
+      <h2 class="pt-4 text-2xl font-bold text-white sm:text-3xl">Red flags to watch for</h2>
+      <p>
+        Some patterns should end the conversation immediately. The first is a guaranteed ROI number quoted before any diagnostic call — no agency can know your process well enough to promise a return before seeing your actual data and workflows. The second is opaque pricing: quotes that arrive without a breakdown, or that change repeatedly during negotiation. The third is the absence of any verifiable client — no names, no case studies, no way to confirm the work actually shipped and worked in production. The fourth, and most common, is a templated pitch: the same deck, the same three automations, offered to every prospect regardless of industry or actual bottlenecks. Automation that works starts with understanding what's genuinely slow or broken in your specific operation — a generic package sold to everyone is a sign the agency skipped that step entirely.
+      </p>
+
+      <h2 class="pt-4 text-2xl font-bold text-white sm:text-3xl">
+        Why remote-first, globally-distributed agencies work well for this
+      </h2>
+      <p>
+        Automation work is inherently remote-friendly: it happens inside software, not on a factory floor, so where the team sits matters far less than how well they communicate. Elevate 7 IA is based in Bogotá, Colombia, and works with clients across Latin America, Spain, and the United States without ever meeting in person. Delivery runs on weekly sprints with clear asynchronous updates, so a client in Madrid and a client in Miami get the same cadence and the same visibility into progress. The team works bilingually in English and Spanish, switching to whichever language the client's internal team actually uses day to day. Across years of fully remote delivery, time zones have never been the blocker skeptics expect — clear documentation and a predictable sprint rhythm solve what people assume requires being in the same room.
+      </p>
+
+      <p>
+        If you're evaluating whether an AI automation agency is worth it for your business, the fastest way to find out is a direct conversation about your actual processes, not a generic pitch deck. At Elevate 7 IA, every engagement starts with a free diagnostic call to look at what's genuinely slow, repetitive, or costly in your operation before recommending anything — you can <a href="/contacto" class="text-brand-300 hover:underline">book a free diagnostic call here</a>.
+      </p>
+    </div>
+  </article>
+</BaseLayout>

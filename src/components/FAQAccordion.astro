@@ -1,0 +1,33 @@
+---
+export interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+export interface Props {
+  items: FAQItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="divide-y divide-white/10 rounded-2xl border border-white/10 bg-white/[0.02]">
+  {items.map((item) => (
+    <details class="group px-6 py-5 sm:px-8">
+      <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-left font-display text-base font-semibold text-white sm:text-lg">
+        {item.question}
+        <svg
+          class="h-5 w-5 flex-shrink-0 text-accent-400 transition-transform duration-200 group-open:rotate-45"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+        </svg>
+      </summary>
+      <p class="mt-3 pr-8 text-sm leading-relaxed text-slate-400 sm:text-base">{item.answer}</p>
+    </details>
+  ))}
+</div>

@@ -1,0 +1,167 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'Sobre Elevate 7 IA — Agencia de Automatización con IA';
+const description =
+  'Conoce el equipo detrás de Elevate 7 IA. Especialistas en automatización con inteligencia artificial para empresas. Operamos de forma remota a nivel mundial.';
+
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Juan',
+  jobTitle: 'Founder & AI Automation Specialist',
+  worksFor: { '@type': 'Organization', name: 'Elevate 7 IA' },
+  address: { '@type': 'PostalAddress', addressLocality: 'Bogotá', addressCountry: 'CO' },
+};
+
+const products = [
+  {
+    icon: '📓',
+    name: 'Elite Trading Journal',
+    category: 'SaaS · Traders',
+    description:
+      'Diario de trading con IA integrada. Registro psicológico pre/durante/post operación, mentor de IA, calculadora de tamaño de posición, soporte multi-cuenta y sincronización con MT5.',
+    tags: ['React', 'Supabase', 'Claude API', 'MT5'],
+    status: 'En vivo',
+  },
+  {
+    icon: '📈',
+    name: 'Copy Trade Master',
+    category: 'Plataforma · Forex CFD',
+    description:
+      'Plataforma de copy trading en Forex y CFD. Perfiles de traders destacados, seguimiento automático de operaciones y panel de rendimiento en tiempo real.',
+    tags: ['React', 'n8n', 'MT5'],
+    status: 'En desarrollo',
+  },
+  {
+    icon: '🏠',
+    name: 'PropVision',
+    category: 'SaaS · Inmobiliario',
+    description:
+      'Herramienta de análisis inmobiliario con IA. Carga fotos o URL de propiedades y obtén un análisis detallado del espacio, proyecciones de valor y recomendaciones de mejora.',
+    tags: ['React', 'Claude API', 'Vite'],
+    status: 'Prototipo',
+  },
+  {
+    icon: '🔮',
+    name: 'The Golden Frequency',
+    category: 'Web3 · NFT · Blockchain',
+    description:
+      'Colección de NFTs y activos digitales en blockchain para The Golden Frequency. Contratos inteligentes, tokenización de experiencias y comunidad Web3 construida sobre Ethereum.',
+    tags: ['Solidity', 'ERC-721', 'Ethereum', 'Web3.js'],
+    status: 'En desarrollo',
+  },
+  {
+    icon: '🧠',
+    name: 'Psicotrader',
+    category: 'Marca personal · Contenido',
+    description:
+      'Canal de psicología del trading en Instagram y TikTok. Contenido sobre finanzas conductuales, dominio emocional y rendimiento del trader, producido con IA y clonación de voz.',
+    tags: ['ElevenLabs', 'Claude API', 'Remotion'],
+    status: 'Activo',
+  },
+];
+
+const statusClasses: Record<string, string> = {
+  'En vivo': 'text-accent-400 bg-accent-500/10 border-accent-500/20',
+  'En desarrollo': 'text-blue-400 bg-blue-400/10 border-blue-400/20',
+  Prototipo: 'text-slate-400 bg-white/5 border-white/10',
+  Activo: 'text-accent-400 bg-accent-500/10 border-accent-500/20',
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://elevatezevenia.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Nosotros', item: 'https://elevatezevenia.com/nosotros' },
+  ],
+};
+---
+
+<BaseLayout title={title} description={description} path="/nosotros" schema={[personSchema, breadcrumbSchema]}>
+  <section class="section pb-12 pt-20 sm:pt-24">
+    <div class="mx-auto max-w-3xl text-center">
+      <span class="eyebrow">Nosotros</span>
+      <h1 class="text-4xl font-bold leading-tight sm:text-5xl">Sobre Elevate 7 IA</h1>
+    </div>
+  </section>
+
+  <section class="section pt-0">
+    <div class="mx-auto max-w-3xl space-y-8">
+      <div class="card">
+        <h2 class="text-xl font-semibold text-white sm:text-2xl">Quiénes somos</h2>
+        <p class="mt-4 text-base leading-relaxed text-slate-300">
+          Elevate 7 IA es una agencia especializada en automatización con inteligencia artificial. Trabajamos de forma 100% remota con empresas en cualquier parte del mundo. Nuestro origen está en Bogotá, Colombia, y eso nos da una perspectiva práctica: sabemos lo que significa implementar tecnología avanzada en entornos con recursos limitados, equipos pequeños y presión por resultados rápidos.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2 class="text-xl font-semibold text-white sm:text-2xl">El founder</h2>
+        <p class="mt-4 text-base leading-relaxed text-slate-300">
+          Juan, fundador de Elevate 7 IA, tiene experiencia en performance marketing (Google Ads, Meta) y automatización con IA para empresas en múltiples industrias. Ha gestionado campañas para clientes en salud, educación, servicios financieros, real estate e industria — tanto en mercados de habla hispana como en el mercado estadounidense. Esa combinación de marketing de performance e IA es el núcleo de lo que hace diferente a Elevate 7 IA.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2 class="text-xl font-semibold text-white sm:text-2xl">Filosofía de trabajo</h2>
+        <p class="mt-4 text-base leading-relaxed text-slate-300">
+          No creemos en proyectos de IA teóricos que tardan meses en ver resultados. Cada implementación parte de un proceso real con un problema medible, se construye en sprints de dos semanas y se evalúa con métricas definidas antes de empezar. Si en las primeras cuatro semanas no hay un resultado visible, algo está mal en el diagnóstico — y lo corregimos.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2 class="text-xl font-semibold text-white sm:text-2xl">Modelo remoto</h2>
+        <p class="mt-4 text-base leading-relaxed text-slate-300">
+          Operamos de forma completamente asíncrona y remota. Hemos trabajado con clientes en zonas horarias distintas sin que eso haya sido un obstáculo. Los sprints semanales, la documentación clara y los entregables concretos hacen que la distancia no importe. Lo que importa son los resultados.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section pt-0">
+    <div class="mb-12 text-center">
+      <span class="eyebrow">Productos SaaS &amp; proyectos con IA</span>
+      <h2 class="text-3xl font-bold sm:text-4xl">
+        Lo que hemos <span class="text-accent-400">construido</span>
+      </h2>
+      <p class="mx-auto mt-4 max-w-xl text-slate-400">
+        Cada proyecto es prueba de nuestra capacidad técnica y de producto. No solo asesoramos — construimos.
+      </p>
+    </div>
+    <div class="grid grid-cols-1 gap-5 md:grid-cols-2">
+      {products.map((p) => (
+        <div class="card">
+          <div class="mb-4 flex items-start justify-between gap-3">
+            <div class="flex items-center gap-3">
+              <span class="text-3xl">{p.icon}</span>
+              <div>
+                <h3 class="font-display text-lg font-bold leading-tight text-white">{p.name}</h3>
+                <p class="mt-0.5 text-xs text-accent-400">{p.category}</p>
+              </div>
+            </div>
+            <span class={`shrink-0 rounded-full border px-2.5 py-1 text-xs ${statusClasses[p.status]}`}>
+              {p.status}
+            </span>
+          </div>
+          <p class="mb-5 text-sm leading-relaxed text-slate-400">{p.description}</p>
+          <div class="flex flex-wrap gap-2">
+            {p.tags.map((tag) => (
+              <span class="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-xs text-slate-500">{tag}</span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section pt-0">
+    <div class="card mx-auto flex max-w-3xl flex-col items-center gap-6 text-center sm:flex-row sm:justify-between sm:text-left">
+      <div>
+        <h2 class="text-2xl font-bold sm:text-3xl">Hablemos de tu empresa</h2>
+        <p class="mt-2 text-slate-400">Agenda una llamada y conversemos sobre tus procesos.</p>
+      </div>
+      <a href="/contacto#opciones" class="btn-primary whitespace-nowrap">Contactar</a>
+    </div>
+  </section>
+</BaseLayout>

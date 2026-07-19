@@ -1,6 +1,16 @@
-.env
-node_modules
-dist
+# build output
+dist/
+.astro/
 
-.vercel
-.env*
+# dependencies
+node_modules/
+
+# logs
+npm-debug.log*
+
+# environment
+.env
+.env.production
+
+# macOS
+.DS_Store

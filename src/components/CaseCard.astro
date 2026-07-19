@@ -1,0 +1,23 @@
+---
+export interface Props {
+  sector: string;
+  title: string;
+  description: string;
+  metrics: string[];
+}
+
+const { sector, title, description, metrics } = Astro.props;
+---
+
+<div class="card">
+  <span class="eyebrow">{sector}</span>
+  <h2 class="mt-2 text-xl font-semibold text-white sm:text-2xl">{title}</h2>
+  <p class="mt-4 text-sm leading-relaxed text-slate-400 sm:text-base">{description}</p>
+  <div class="mt-6 flex flex-wrap gap-3">
+    {metrics.map((metric) => (
+      <span class="rounded-xl border border-accent-500/25 bg-accent-500/10 px-4 py-2 text-sm font-semibold text-accent-300">
+        {metric}
+      </span>
+    ))}
+  </div>
+</div>

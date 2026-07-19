@@ -1,0 +1,106 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = 'Automatización con IA en Colombia: Guía para Empresas';
+const description =
+  'Cómo automatizar procesos con IA en empresas colombianas: adopción, marco legal, sectores y presupuestos. Agenda tu diagnóstico gratuito con Elevate 7 IA.';
+const publishedTime = '2026-07-14';
+const modifiedTime = '2026-07-14';
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Automatización con IA en Colombia: Guía para Empresas',
+  description,
+  datePublished: publishedTime,
+  dateModified: modifiedTime,
+  inLanguage: 'es',
+  author: { '@type': 'Organization', name: 'Elevate 7 IA', url: 'https://elevatezevenia.com' },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Elevate 7 IA',
+    logo: { '@type': 'ImageObject', url: 'https://elevatezevenia.com/logo.png' },
+  },
+  mainEntityOfPage: 'https://elevatezevenia.com/blog/automatizacion-ia-colombia',
+  image: 'https://elevatezevenia.com/og-image.jpg',
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://elevatezevenia.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://elevatezevenia.com/blog' },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: 'Automatización con IA en Colombia',
+      item: 'https://elevatezevenia.com/blog/automatizacion-ia-colombia',
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  path="/blog/automatizacion-ia-colombia"
+  ogType="article"
+  articleMeta={{ publishedTime, modifiedTime, author: 'Elevate 7 IA' }}
+  schema={[articleSchema, breadcrumbSchema]}
+>
+  <article class="section max-w-3xl pb-8 pt-20 sm:pt-24">
+    <div class="mb-10 text-center">
+      <span class="eyebrow">IA en Colombia</span>
+      <h1 class="text-4xl font-bold leading-tight sm:text-5xl">
+        Automatización con IA en Colombia: Guía para Empresas
+      </h1>
+      <p class="mt-4 text-sm text-slate-500">Publicado el 14 de julio de 2026 · Elevate 7 IA</p>
+    </div>
+
+    <div class="prose-content space-y-6 text-base leading-relaxed text-slate-300 sm:text-lg">
+      <p>
+        En 2026, buena parte de las empresas colombianas sigue gestionando procesos críticos —cotizaciones, seguimiento de clientes, reportes financieros— en hojas de cálculo y conversaciones de WhatsApp que nadie centraliza. Mientras tanto, un grupo cada vez mayor de pymes en Bogotá, Medellín y Cali ya automatizó esos mismos procesos con inteligencia artificial y hoy opera con costos más bajos, tiempos de respuesta más cortos y menos errores humanos. La brecha entre ambos grupos se está ampliando rápido. Esta guía explica el panorama real de adopción de IA en Colombia, el marco regulatorio que debes conocer y cómo empezar con presupuestos alcanzables para una empresa colombiana promedio.
+      </p>
+
+      <h2 class="pt-4 text-2xl font-bold text-white sm:text-3xl">
+        El panorama de adopción de IA en empresas colombianas
+      </h2>
+      <p>
+        La adopción de IA en Colombia no es pareja. Las grandes empresas —bancos, retailers nacionales, conglomerados— llevan años invirtiendo en proyectos de transformación digital, pero sus estructuras jerárquicas y procesos de aprobación hacen que cada iniciativa tome meses en salir de comité. Las pymes colombianas, en cambio, pueden decidir e implementar en semanas porque el dueño o el gerente general suele ser quien aprueba directamente. Los puntos de entrada más comunes son dos: atención al cliente por WhatsApp —el canal de facto para ventas y soporte en Colombia— y optimización de campañas de marketing digital, donde ya se usa IA para ajustar pujas y segmentación en tiempo real. Esta agilidad de decisión, sumada a que la mayoría de las herramientas de automatización (n8n, Make, WhatsApp Business API) ya están adaptadas al mercado colombiano, pone a las pymes en una posición mejor que muchas corporaciones grandes para adoptar automatización con IA de forma rápida y con resultados medibles en el corto plazo.
+      </p>
+
+      <h2 class="pt-4 text-2xl font-bold text-white sm:text-3xl">
+        Marco regulatorio: qué debes saber sobre datos e IA en Colombia
+      </h2>
+      <p>
+        Cualquier automatización que toque datos de clientes en Colombia debe partir de la Ley 1581 de 2012, la norma de protección de datos personales que consagra el derecho de habeas data. Esto significa que un flujo automatizado que recolecta, almacena o procesa información de clientes —nombre, teléfono, historial de compras— necesita una base de tratamiento clara, autorización cuando corresponda y mecanismos para que el titular consulte o solicite eliminar sus datos. A nivel de política pública, Colombia ha avanzado documentos CONPES orientados a promover una adopción responsable de inteligencia artificial, con énfasis en transparencia y gestión de riesgo, aunque todavía no existe una ley específica de IA como tal. En la práctica, esto se traduce en construir automatizaciones con consentimiento explícito, registros de qué datos se procesan y por qué, y proveedores que cumplan estándares de seguridad. Este contenido es orientativo y no reemplaza asesoría legal especializada; para casos específicos conviene validar con un abogado.
+      </p>
+
+      <h2 class="pt-4 text-2xl font-bold text-white sm:text-3xl">
+        Sectores colombianos con mayor oportunidad de automatización
+      </h2>
+      <p>
+        Cuatro sectores del mercado colombiano concentran las mejores oportunidades de automatización inmediata. En salud, las clínicas privadas y centros de diagnóstico pueden automatizar la confirmación y el recordatorio de citas por WhatsApp, reduciendo el ausentismo que hoy se gestiona por llamadas manuales del personal administrativo. En educación, instituciones y universidades colombianas manejan altos volúmenes de consultas repetitivas sobre admisiones, pagos de matrícula y horarios; un agente de IA integrado al sitio web y a WhatsApp puede resolver la mayoría de esas consultas sin intervención humana. En servicios financieros y fintech, la verificación inicial de documentos, el scoring preliminar de solicitudes y el seguimiento de cartera son procesos de alto volumen y reglas claras, ideales para automatizar con agentes que después escalan a un analista humano los casos ambiguos. En el sector inmobiliario y de construcción, la calificación de leads que llegan por portales como Fincaraíz o Metrocuadrado y su distribución automática a los asesores correctos según zona y presupuesto elimina uno de los cuellos de botella más comunes en las inmobiliarias colombianas: leads que se enfrían por demoras en el primer contacto.
+      </p>
+
+      <h2 class="pt-4 text-2xl font-bold text-white sm:text-3xl">
+        Presupuestos realistas para pymes colombianas
+      </h2>
+      <p>
+        Los presupuestos para automatización con IA no requieren inversiones de gran empresa. Un flujo básico —automatizar atención por WhatsApp, calificación de leads o generación de reportes— suele costar entre $500 y $800 USD mensuales con una agencia especializada, incluyendo mantenimiento y ajustes. Proyectos más complejos, con agentes de IA que manejan múltiples canales o dashboards personalizados en BigQuery y Looker Studio, se ubican entre $1,500 y $5,000 USD según alcance. Para ponerlo en perspectiva local: el rango básico equivale, en muchas empresas colombianas, a una fracción del salario mensual de un analista junior, con la diferencia de que la automatización trabaja las 24 horas, no comete errores por cansancio y no requiere selección, contratación ni rotación de personal. Para una pyme formal en Colombia con procesos manuales de alto volumen, este tipo de inversión suele recuperarse en pocos meses gracias a las horas de trabajo administrativo que deja de pagar.
+      </p>
+
+      <h2 class="pt-4 text-2xl font-bold text-white sm:text-3xl">
+        Por qué trabajar con una agencia local que opera con estándares globales
+      </h2>
+      <p>
+        Elevate 7 IA opera desde Bogotá, lo que significa que entendemos de primera mano las restricciones presupuestales, los ciclos de venta y la forma de operar de una empresa colombiana típica —desde la pyme familiar hasta la startup en crecimiento. Al mismo tiempo, usamos exactamente el mismo stack que empresas de Estados Unidos o Europa contratan para sus proyectos de automatización: n8n y Make para orquestación, Claude de Anthropic y GPT de OpenAI para los agentes de IA, y Google Ads y Meta para marketing optimizado con inteligencia artificial. Esta combinación —contexto local, estándares globales— evita dos problemas comunes: pagar tarifas internacionales por un proyecto que no las justifica, o contratar un proveedor local que desconoce las herramientas más avanzadas del mercado. Somos remote-first y damos soporte tanto en español como en inglés, lo que también nos permite trabajar con empresas colombianas que tienen operaciones o clientes fuera del país.
+      </p>
+
+      <p>
+        Si tu empresa colombiana tiene procesos manuales que consumen horas todos los días —cotizaciones, seguimiento de clientes, reportes— en Elevate 7 IA hacemos un diagnóstico gratuito antes de proponer cualquier implementación, sin importar si estás en Bogotá, Medellín, Cali o cualquier otra ciudad del país. Puedes <a href="/contacto" class="text-brand-300 hover:underline">agendar una llamada aquí</a>.
+      </p>
+    </div>
+  </article>
+</BaseLayout>

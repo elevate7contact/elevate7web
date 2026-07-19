@@ -1,0 +1,101 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+import '../styles/global.css';
+
+export interface Props {
+  lang?: 'es' | 'en';
+  title: string;
+  description: string;
+  path: string;
+  ogType?: 'website' | 'article';
+  schema?: Record<string, unknown> | Record<string, unknown>[];
+  articleMeta?: {
+    publishedTime: string;
+    modifiedTime?: string;
+    author?: string;
+  };
+}
+
+const {
+  lang = 'es',
+  title,
+  description,
+  path,
+  ogType = 'website',
+  schema,
+  articleMeta,
+} = Astro.props;
+
+const SITE_URL = 'https://elevatezevenia.com';
+const canonicalURL = new URL(path, SITE_URL).toString();
+const ogImage = new URL('/og-image.jpg', SITE_URL).toString();
+const ogLocale = lang === 'en' ? 'en_US' : 'es_CO';
+
+const schemaList = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+    <meta name="robots" content="index, follow" />
+    <link rel="icon" type="image/png" href="/favicon-32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="/favicon.png" sizes="256x256" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:locale" content={ogLocale} />
+    <meta property="og:site_name" content="Elevate 7 IA" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    {ogType === 'article' && articleMeta && (
+      <>
+        <meta property="article:published_time" content={articleMeta.publishedTime} />
+        {articleMeta.modifiedTime && (
+          <meta property="article:modified_time" content={articleMeta.modifiedTime} />
+        )}
+        {articleMeta.author && <meta property="article:author" content={articleMeta.author} />}
+      </>
+    )}
+
+    <link rel="alternate" type="application/rss+xml" title="Elevate 7 IA Blog" href="/blog" />
+
+    {schemaList.map((s) => (
+      <script type="application/ld+json" set:html={JSON.stringify(s)} />
+    ))}
+
+    <slot name="head" />
+  </head>
+  <body class="min-h-screen bg-ink-950">
+    <div class="pointer-events-none fixed inset-0 bg-grid-glow"></div>
+    <div class="relative">
+      <Header lang={lang} />
+      <main>
+        <slot />
+      </main>
+      <Footer lang={lang} />
+    </div>
+    <WhatsAppButton />
+  </body>
+</html>

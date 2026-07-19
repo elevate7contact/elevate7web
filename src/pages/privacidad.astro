@@ -1,0 +1,83 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'Política de Privacidad | Elevate 7 IA';
+const description =
+  'Cómo Elevate 7 IA recopila, usa y protege tus datos personales, qué cookies utilizamos y cuáles son tus derechos como usuario del sitio.';
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://elevatezevenia.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Política de privacidad', item: 'https://elevatezevenia.com/privacidad' },
+  ],
+};
+
+const lastUpdated = '18 de julio de 2026';
+---
+
+<BaseLayout title={title} description={description} path="/privacidad" schema={breadcrumbSchema}>
+  <section class="section pb-8 pt-20 sm:pt-24">
+    <div class="mx-auto max-w-3xl text-center">
+      <span class="eyebrow">Legal</span>
+      <h1 class="text-4xl font-bold leading-tight sm:text-5xl">Política de Privacidad</h1>
+      <p class="mt-4 text-sm text-slate-500">Última actualización: {lastUpdated}</p>
+    </div>
+  </section>
+
+  <section class="section pt-0">
+    <div class="mx-auto max-w-3xl space-y-8 text-slate-300">
+      <div class="card">
+        <h2 class="text-xl font-semibold text-white">1. Quiénes somos</h2>
+        <p class="mt-4 text-sm leading-relaxed sm:text-base">
+          Elevate 7 IA ("nosotros", "la agencia") es una agencia de automatización con inteligencia artificial con sede en Bogotá, Colombia, que presta servicios a empresas en cualquier país. Esta política explica qué información recopilamos a través de elevatezevenia.com, cómo la usamos y qué derechos tienes sobre ella.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2 class="text-xl font-semibold text-white">2. Información que recopilamos</h2>
+        <p class="mt-4 text-sm leading-relaxed sm:text-base">
+          Recopilamos la información que nos entregas voluntariamente a través del formulario de contacto: nombre, empresa, correo electrónico y el contenido de tu mensaje. También podemos recopilar datos técnicos básicos de navegación (páginas visitadas, tipo de dispositivo, ubicación aproximada) a través de herramientas de analítica y de las plataformas publicitarias que usamos para gestionar campañas de nuestros clientes y las nuestras propias, como Google Ads y Meta Ads.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2 class="text-xl font-semibold text-white">3. Cómo usamos tu información</h2>
+        <p class="mt-4 text-sm leading-relaxed sm:text-base">
+          Usamos la información de contacto exclusivamente para responder a tu solicitud, agendar la llamada diagnóstica y, si continuamos el proceso, elaborar una propuesta de servicios. No vendemos ni compartimos tus datos personales con terceros ajenos a la operación del proyecto. Los datos técnicos de navegación se usan de forma agregada para entender qué contenido es útil y mejorar el sitio.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2 class="text-xl font-semibold text-white">4. Cookies y herramientas de terceros</h2>
+        <p class="mt-4 text-sm leading-relaxed sm:text-base">
+          Este sitio puede usar cookies y píxeles de seguimiento de terceros — como Google Analytics, Google Ads y Meta Pixel — para medir el rendimiento del sitio y de nuestras propias campañas. Puedes desactivar las cookies desde la configuración de tu navegador en cualquier momento; ten en cuenta que esto puede afectar algunas funcionalidades del sitio.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2 class="text-xl font-semibold text-white">5. Conservación y seguridad de los datos</h2>
+        <p class="mt-4 text-sm leading-relaxed sm:text-base">
+          Conservamos la información de contacto durante el tiempo necesario para gestionar la relación comercial y, posteriormente, durante el período que exige la normativa contable y fiscal aplicable. Aplicamos medidas razonables de seguridad técnica y organizativa para proteger tus datos frente a accesos no autorizados.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2 class="text-xl font-semibold text-white">6. Tus derechos</h2>
+        <p class="mt-4 text-sm leading-relaxed sm:text-base">
+          Puedes solicitar en cualquier momento el acceso, la corrección o la eliminación de tus datos personales, así como oponerte a su tratamiento, escribiendo a
+          <a href="mailto:elevate7.contact@gmail.com" class="text-brand-300 hover:underline">elevate7.contact@gmail.com</a>.
+          Responderemos tu solicitud en un plazo razonable conforme a la normativa de protección de datos aplicable.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2 class="text-xl font-semibold text-white">7. Cambios a esta política</h2>
+        <p class="mt-4 text-sm leading-relaxed sm:text-base">
+          Podemos actualizar esta política ocasionalmente para reflejar cambios legales u operativos. La fecha de la última actualización se muestra al inicio de esta página. Te recomendamos revisarla periódicamente.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

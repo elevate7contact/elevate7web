@@ -30,4 +30,20 @@
   .card {
     @apply rounded-2xl border border-white/10 bg-white/[0.03] p-8 shadow-xl shadow-black/20 backdrop-blur-sm;
   }
+
+  .step-btn {
+    cursor: pointer;
+  }
+  .step-btn:hover .step-number {
+    @apply !border-white/30 !text-slate-300;
+  }
+  .step-btn:hover .step-title {
+    @apply !text-slate-300;
+  }
+  .step-btn.is-active .step-number {
+    @apply !border-accent-500 !bg-accent-500 !text-ink-950;
+  }
+  .step-btn.is-active .step-title {
+    @apply !text-accent-400;
+  }
 }

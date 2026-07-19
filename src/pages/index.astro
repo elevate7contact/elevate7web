@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FAQAccordion from '../components/FAQAccordion.astro';
 import ServiceCard from '../components/ServiceCard.astro';
+import ProcessSteps from '../components/ProcessSteps.astro';
 
 const title = 'AI Automation Agency for Business Growth | Elevate 7 IA';
 const description =
@@ -103,6 +104,37 @@ const services = [
   { number: '02', title: 'Agentes de IA', description: 'Agentes con Claude y OpenAI que califican leads, responden consultas y analizan documentos sin intervención humana.' },
   { number: '03', title: 'Marketing con IA', description: 'Campañas de Google Ads y Meta optimizadas con inteligencia artificial para mejor ROAS y menor CPA.' },
 ];
+
+const processSteps = [
+  {
+    tag: 'Paso 1',
+    title: 'Te escuchamos',
+    icon: 'search' as const,
+    description:
+      'Hablamos con tu equipo y miramos de cerca cómo trabajan hoy. Buscamos las tareas que se repiten todos los días y le quitan tiempo a las personas — eso es lo primero que vamos a resolver.',
+  },
+  {
+    tag: 'Paso 2',
+    title: 'Diseñamos el plan',
+    icon: 'plan' as const,
+    description:
+      'Con esa información armamos un plan simple: qué se puede automatizar, en qué orden y qué resultado esperar. Todo explicado en un lenguaje que cualquier persona de tu empresa puede entender.',
+  },
+  {
+    tag: 'Paso 3',
+    title: 'Lo construimos',
+    icon: 'build' as const,
+    description:
+      'Creamos el sistema y lo conectamos con las herramientas que tu equipo ya usa — el correo, WhatsApp, tus hojas de cálculo, tus anuncios. Nadie tiene que aprender nada nuevo ni complicado.',
+  },
+  {
+    tag: 'Paso 4',
+    title: 'Medimos resultados',
+    icon: 'chart' as const,
+    description:
+      'Una vez todo está funcionando, te mostramos números concretos: tiempo ahorrado, clientes atendidos más rápido, mejoras en tus ventas. Si algo no funciona como esperábamos, lo ajustamos.',
+  },
+];
 ---
 
 <BaseLayout
@@ -133,9 +165,19 @@ const services = [
     <div class="card mx-auto max-w-4xl">
       <span class="eyebrow">Qué hacemos</span>
       <p class="text-base leading-relaxed text-slate-300 sm:text-lg">
-        Elevate 7 IA diseña e implementa soluciones de inteligencia artificial para empresas que quieren escalar sin sumar personal. Trabajamos de forma 100% remota con clientes en cualquier país. Nuestro stack incluye automatización de flujos con n8n y Make, agentes de IA construidos sobre Claude y OpenAI, optimización de campañas Google Ads y Meta con inteligencia artificial, y pipelines de datos automatizados con Looker Studio y BigQuery. Cada implementación parte de un diagnóstico de procesos real y termina con métricas claras que demuestran el impacto. No vendemos tecnología por la tecnología — implementamos lo que genera retorno medible en el menor tiempo posible.
+        Ayudamos a tu empresa a dejar de perder tiempo en tareas repetitivas. Identificamos qué partes de tu día a día se pueden hacer solas — responder mensajes, hacer seguimiento a clientes, armar reportes, mejorar tus anuncios — y construimos un sistema que lo hace por ti, sin que tu equipo tenga que aprender nada complicado. Trabajamos con empresas de cualquier país, de forma 100% remota, y cada proyecto termina con resultados que puedes ver y medir, no solo promesas.
       </p>
     </div>
+  </section>
+
+  <!-- Cómo funciona (infografía interactiva) -->
+  <section class="section pt-0">
+    <div class="mb-12 text-center">
+      <span class="eyebrow">Cómo funciona</span>
+      <h2 class="text-3xl font-bold sm:text-4xl">Así es el proceso, paso a paso</h2>
+      <p class="mx-auto mt-4 max-w-2xl text-slate-400">Toca cada número para ver en qué consiste.</p>
+    </div>
+    <ProcessSteps steps={processSteps} />
   </section>
 
   <!-- Servicios teaser -->

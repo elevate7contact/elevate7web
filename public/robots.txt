@@ -8,4 +8,4 @@ User-agent: PerplexityBot
 Allow: /
 User-agent: Google-Extended
 Allow: /
-Sitemap: https://elevatezevenia.com/sitemap-index.xml
+Sitemap: https://elevatezevenia.com/sitemap.xml

@@ -1,0 +1,208 @@
+---
+const CAL_FREE = 'https://cal.com/elevate-zeven/20min';
+
+const freeFeatures = [
+  'Radiografía de tu operación actual',
+  'Los 3 puntos que más te están frenando',
+  'Hoja de ruta de 30 días personalizada',
+  'Preguntas sin límite — estrategia y técnica',
+];
+
+const midFeatures = [
+  'Sesión privada 1 a 1 sin distracciones',
+  'Revisión profunda de tu estrategia o técnica',
+  'Plan de acción concreto al terminar',
+  'Grabación completa de la sesión',
+];
+
+const topFeatures = [
+  { text: 'Todo lo de la sesión de 30 min, más:', muted: true },
+  { text: 'Análisis estratégico completo de tu negocio' },
+  { text: 'Arquitectura técnica de tu sistema de IA' },
+  { text: 'Plan de acción paso a paso (con prioridades)' },
+  { text: 'Seguimiento por email por 48 horas tras la sesión' },
+  { text: 'Grabación completa disponible' },
+];
+
+const trustBadges = [
+  { icon: '🔒', label: 'Pago cifrado con Stripe' },
+  { icon: '📅', label: 'Elige tu horario tras el pago' },
+  { icon: '🔄', label: 'Reagendar sin costo' },
+  { icon: '📧', label: 'Confirmación por email' },
+];
+---
+
+<div id="opciones" data-component="booking-options">
+  <div class="mb-14 text-center">
+    <span class="eyebrow">Agenda tu diagnóstico de automatización · Sin costo</span>
+    <h2 class="text-3xl font-bold sm:text-4xl">
+      Descubre qué está frenando tu negocio. <span class="text-accent-400">Cuesta $0.</span>
+    </h2>
+    <p class="mx-auto mt-4 max-w-lg text-slate-400">
+      En 20 minutos identificamos el mayor cuello de botella en tu operación y te explicamos cómo la IA lo resuelve. Sin venderte nada — solo el diagnóstico honesto que necesitas.
+    </p>
+  </div>
+
+  <div
+    id="booking-error"
+    class="mx-auto mb-6 hidden max-w-xl rounded-xl border border-red-500/20 bg-red-500/5 px-5 py-3 text-center"
+  >
+    <p class="text-sm text-red-400" id="booking-error-text"></p>
+  </div>
+
+  <div class="grid grid-cols-1 items-stretch gap-5 md:grid-cols-3">
+    <!-- Gratis -->
+    <div class="card flex flex-col border-accent-500/25">
+      <div class="mb-5 flex items-center justify-between">
+        <span class="rounded-full border border-accent-500/25 bg-accent-500/10 px-3 py-1 text-xs font-semibold text-accent-400">
+          🔥 Empieza aquí
+        </span>
+        <span class="text-2xl">🎁</span>
+      </div>
+      <p class="font-display text-xl font-bold text-white">Diagnóstico gratuito</p>
+      <p class="mb-2 mt-1 text-sm font-semibold text-accent-400">20 minutos · $0 · Sin tarjeta</p>
+      <p class="mb-5 text-xs text-slate-500">
+        El diagnóstico que te dice exactamente qué automatizar primero para ver resultados esta semana.
+      </p>
+      <ul class="mb-8 flex flex-1 flex-col gap-2.5 text-sm text-slate-300">
+        {freeFeatures.map((item) => (
+          <li class="flex items-start gap-2">
+            <span class="mt-0.5 shrink-0 text-accent-400">✓</span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+      <a href={CAL_FREE} target="_blank" rel="noopener noreferrer" class="btn-primary w-full text-center">
+        Reservar mi diagnóstico gratis →
+      </a>
+      <p class="mt-3 text-center text-xs text-slate-500">Sin tarjeta · Sin compromiso · Sin presión de venta</p>
+    </div>
+
+    <!-- 30 min -->
+    <div class="card flex flex-col transition hover:border-accent-500/25">
+      <div class="mb-5 flex items-center justify-between">
+        <span class="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold text-slate-400">
+          Consultoría rápida
+        </span>
+        <span class="text-2xl">⚡</span>
+      </div>
+      <p class="font-display text-xl font-bold text-white">Sesión enfocada 30 min</p>
+      <p class="mb-2 mt-1">
+        <span class="font-display text-3xl font-bold text-white">$50</span>
+        <span class="ml-1 text-sm text-slate-400">USD</span>
+      </p>
+      <p class="mb-5 text-xs text-slate-500">
+        Para cuando ya sabes qué quieres resolver y necesitas un experto que te diga exactamente cómo hacerlo.
+      </p>
+      <ul class="mb-8 flex flex-1 flex-col gap-2.5 text-sm text-slate-300">
+        {midFeatures.map((item) => (
+          <li class="flex items-start gap-2">
+            <span class="mt-0.5 shrink-0 text-accent-400">✓</span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+      <button type="button" data-plan="30min" class="booking-btn btn-primary w-full disabled:cursor-wait disabled:opacity-60">
+        Agendar sesión · $50 USD →
+      </button>
+      <p class="mt-3 text-center text-xs text-slate-500">Pago seguro con Stripe · Elige fecha tras pagar</p>
+    </div>
+
+    <!-- 60 min -->
+    <div class="card flex flex-col border-gold-500/30">
+      <div class="mb-5 flex items-center justify-between">
+        <span class="rounded-full bg-gold-500 px-3 py-1 text-xs font-semibold text-ink-950">⭐ Más completa</span>
+        <span class="text-2xl">🏆</span>
+      </div>
+      <p class="font-display text-xl font-bold text-white">Consultoría completa 1 hora</p>
+      <p class="mb-2 mt-1">
+        <span class="font-display text-3xl font-bold text-white">$120</span>
+        <span class="ml-1 text-sm text-gold-400">USD</span>
+      </p>
+      <p class="mb-5 text-xs text-slate-500">
+        Para founders y equipos que quieren un roadmap claro de automatización y no pueden permitirse equivocarse.
+      </p>
+      <ul class="mb-8 flex flex-1 flex-col gap-2.5 text-sm text-slate-300">
+        {topFeatures.map((item) => (
+          <li class="flex items-start gap-2">
+            <span class:list={['mt-0.5 shrink-0', item.muted ? 'opacity-0' : 'text-gold-400']}>✓</span>
+            <span class:list={item.muted ? 'italic text-slate-500' : ''}>{item.text}</span>
+          </li>
+        ))}
+      </ul>
+      <button
+        type="button"
+        data-plan="60min"
+        class="booking-btn inline-flex w-full items-center justify-center gap-2 rounded-full bg-gold-500 px-7 py-3.5 text-sm font-semibold text-ink-950 shadow-lg shadow-gold-500/20 transition hover:bg-gold-400 disabled:cursor-wait disabled:opacity-60"
+      >
+        Agendar consultoría · $120 USD →
+      </button>
+      <p class="mt-3 text-center text-xs text-slate-500">Pago seguro con Stripe · Elige fecha tras pagar</p>
+    </div>
+  </div>
+
+  <!-- Flujo explicado -->
+  <div class="mx-auto mt-10 flex max-w-2xl flex-col items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.02] px-6 py-5 sm:flex-row">
+    <div class="flex shrink-0 items-center gap-3 text-sm text-slate-400">
+      <span class="font-display font-bold text-accent-400">1</span> Completa el pago
+      <span class="hidden text-slate-600 sm:block">→</span>
+    </div>
+    <div class="flex shrink-0 items-center gap-3 text-sm text-slate-400">
+      <span class="font-display font-bold text-accent-400">2</span> Elige fecha y hora
+      <span class="hidden text-slate-600 sm:block">→</span>
+    </div>
+    <div class="flex items-center gap-3 text-sm text-slate-400">
+      <span class="font-display font-bold text-accent-400">3</span> Cita confirmada por email
+    </div>
+  </div>
+
+  <!-- Trust badges -->
+  <div class="mt-6 flex flex-wrap justify-center gap-6">
+    {trustBadges.map((b) => (
+      <div class="flex items-center gap-2 text-slate-500">
+        <span>{b.icon}</span>
+        <span class="text-xs">{b.label}</span>
+      </div>
+    ))}
+  </div>
+</div>
+
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>('[data-component="booking-options"] .booking-btn');
+  const errorBox = document.getElementById('booking-error');
+  const errorText = document.getElementById('booking-error-text');
+
+  function showError(message: string) {
+    if (errorText) errorText.textContent = message;
+    errorBox?.classList.remove('hidden');
+  }
+
+  buttons.forEach((btn) => {
+    const originalLabel = btn.textContent;
+    btn.addEventListener('click', async () => {
+      const plan = btn.getAttribute('data-plan');
+      errorBox?.classList.add('hidden');
+      buttons.forEach((b) => (b.disabled = true));
+      btn.textContent = 'Preparando pago...';
+
+      try {
+        const res = await fetch('/api/create-checkout', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ plan }),
+        });
+        const data = await res.json();
+        if (data.url) {
+          window.location.href = data.url;
+        } else {
+          throw new Error(data.error || 'Error al crear sesión de pago');
+        }
+      } catch (err) {
+        console.error(err);
+        showError('Hubo un problema al procesar el pago. Escríbenos a elevate7.contact@gmail.com');
+        buttons.forEach((b) => (b.disabled = false));
+        btn.textContent = originalLabel;
+      }
+    });
+  });
+</script>

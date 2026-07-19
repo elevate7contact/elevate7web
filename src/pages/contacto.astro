@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import BookingOptions from '../components/BookingOptions.astro';
 
 const title = 'Contacto — Agenda tu Diagnóstico Gratuito | Elevate 7 IA';
 const description =
@@ -38,7 +39,15 @@ const breadcrumbSchema = {
     </div>
   </section>
 
-  <section class="section pt-8">
+  <section class="section pt-0">
+    <BookingOptions />
+  </section>
+
+  <section class="section pt-0">
+    <div class="mb-10 text-center">
+      <span class="eyebrow">¿Prefieres escribirnos primero?</span>
+      <h2 class="text-3xl font-bold sm:text-4xl">Cuéntanos qué necesitas</h2>
+    </div>
     <div class="mx-auto grid max-w-5xl grid-cols-1 gap-8 lg:grid-cols-[1.2fr_1fr]">
       <form
         class="card space-y-5"

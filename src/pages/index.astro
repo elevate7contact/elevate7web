@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import FAQAccordion from '../components/FAQAccordion.astro';
 import ServiceCard from '../components/ServiceCard.astro';
 import ProcessSteps from '../components/ProcessSteps.astro';
+import WorkflowDiagram from '../components/WorkflowDiagram.astro';
 
 const title = 'AI Automation Agency for Business Growth | Elevate 7 IA';
 const description =
@@ -103,6 +104,20 @@ const industries = [
   { name: 'Industrial', description: 'Integramos IA en reportes de producción y flujos de datos entre sistemas ERP para decisiones más rápidas.' },
 ];
 
+const homeStats = [
+  { value: '-96%', label: 'tiempo de respuesta' },
+  { value: '+40%', label: 'conversión a citas' },
+  { value: '8h/semana', label: 'recuperadas en reportes' },
+  { value: '-34%', label: 'costo por adquisición' },
+];
+
+const homeFlow = [
+  { icon: 'chat' as const, label: 'WhatsApp' },
+  { icon: 'agent' as const, label: 'Agente IA' },
+  { icon: 'database' as const, label: 'CRM' },
+  { icon: 'bell' as const, label: 'Notificación al equipo' },
+];
+
 const services = [
   { number: '01', title: 'Automatización de Procesos', description: 'Flujos con n8n y Make que conectan tus aplicaciones y eliminan la copia manual de datos.' },
   { number: '02', title: 'Agentes de IA', description: 'Agentes con Claude y OpenAI que califican leads, responden consultas y analizan documentos sin intervención humana.' },
@@ -164,13 +179,34 @@ const processSteps = [
     </div>
   </section>
 
+  <!-- Métricas -->
+  <section class="section pb-4 pt-0">
+    <div class="mx-auto grid max-w-4xl grid-cols-2 gap-6 rounded-2xl border border-white/10 bg-white/[0.02] px-6 py-8 sm:grid-cols-4 sm:px-10">
+      {homeStats.map((stat) => (
+        <div class="text-center">
+          <p class="font-display text-3xl font-bold text-accent-400 sm:text-4xl">{stat.value}</p>
+          <p class="mt-1 text-xs text-slate-500 sm:text-sm">{stat.label}</p>
+        </div>
+      ))}
+    </div>
+    <p class="mt-4 text-center text-sm text-slate-500">
+      Resultados reales de clientes. <a href="/casos" class="text-brand-300 hover:underline">Ver los casos completos →</a>
+    </p>
+  </section>
+
   <!-- Qué hacemos -->
-  <section class="section pt-0">
-    <div class="card mx-auto max-w-4xl">
-      <span class="eyebrow">Qué hacemos</span>
-      <p class="text-base leading-relaxed text-slate-300 sm:text-lg">
-        Ayudamos a tu empresa a dejar de perder tiempo en tareas repetitivas. Identificamos qué partes de tu día a día se pueden hacer solas — responder mensajes, hacer seguimiento a clientes, armar reportes, mejorar tus anuncios — y construimos un sistema que lo hace por ti, sin que tu equipo tenga que aprender nada complicado. Trabajamos con empresas de cualquier país, de forma 100% remota, y cada proyecto termina con resultados que puedes ver y medir, no solo promesas.
+  <section class="section pt-8">
+    <div class="mx-auto max-w-4xl">
+      <div class="card">
+        <span class="eyebrow">Qué hacemos</span>
+        <p class="text-base leading-relaxed text-slate-300 sm:text-lg">
+          Ayudamos a tu empresa a dejar de perder tiempo en tareas repetitivas. Identificamos qué partes de tu día a día se pueden hacer solas — responder mensajes, hacer seguimiento a clientes, armar reportes, mejorar tus anuncios — y construimos un sistema que lo hace por ti, sin que tu equipo tenga que aprender nada complicado. Trabajamos con empresas de cualquier país, de forma 100% remota, y cada proyecto termina con resultados que puedes ver y medir, no solo promesas.
+        </p>
+      </div>
+      <p class="mb-4 mt-8 text-center text-sm font-semibold uppercase tracking-wide text-slate-500">
+        Un ejemplo real de cómo se conecta
       </p>
+      <WorkflowDiagram steps={homeFlow} />
     </div>
   </section>
 

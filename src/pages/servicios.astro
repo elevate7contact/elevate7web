@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FAQAccordion from '../components/FAQAccordion.astro';
+import WorkflowDiagram from '../components/WorkflowDiagram.astro';
 
 const title = 'AI Automation Services for Business | Elevate 7 IA';
 const description =
@@ -11,6 +12,12 @@ const services = [
     title: 'Automatización de Procesos con n8n y Make',
     description:
       'Flujos que conectan aplicaciones, eliminan la copia manual de datos y disparan acciones automáticas basadas en eventos. Casos típicos: calificación de leads, envío de reportes, sincronización entre CRM y otras herramientas. El equipo cliente no necesita conocimientos técnicos para operar el sistema una vez implementado. Entregamos documentación completa y sesión de capacitación incluida.',
+    flow: [
+      { icon: 'chat' as const, label: 'Lead entrante' },
+      { icon: 'agent' as const, label: 'Flujo automatizado' },
+      { icon: 'database' as const, label: 'CRM' },
+      { icon: 'bell' as const, label: 'Aviso al equipo' },
+    ],
   },
   {
     title: 'Agentes de IA con Claude y OpenAI',
@@ -26,6 +33,12 @@ const services = [
     title: 'Reportes y Dashboards Automáticos',
     description:
       'Pipelines de datos con BigQuery y Looker Studio que se actualizan automáticamente. Alertas por Slack o email cuando una métrica cae fuera del rango esperado. El equipo deja de armar reportes manuales en Excel y empieza a tomar decisiones con datos en tiempo real. Configuración única, mantenimiento mínimo.',
+    flow: [
+      { icon: 'ads' as const, label: 'Campañas' },
+      { icon: 'database' as const, label: 'BigQuery' },
+      { icon: 'chart' as const, label: 'Dashboard' },
+      { icon: 'bell' as const, label: 'Alerta si algo cambia' },
+    ],
   },
   {
     title: 'Integración de IA en Sistemas Existentes',
@@ -96,6 +109,11 @@ const breadcrumbSchema = {
         <div class="card">
           <h2 class="text-xl font-semibold text-white sm:text-2xl">{service.title}</h2>
           <p class="mt-4 text-sm leading-relaxed text-slate-400 sm:text-base">{service.description}</p>
+          {service.flow && (
+            <div class="mt-6">
+              <WorkflowDiagram steps={service.flow} />
+            </div>
+          )}
         </div>
       ))}
     </div>

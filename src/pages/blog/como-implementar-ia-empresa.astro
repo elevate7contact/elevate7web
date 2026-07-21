@@ -5,7 +5,7 @@ const title = 'Cómo Implementar IA en tu Empresa Paso a Paso';
 const description =
   'Guía práctica con 5 pasos para implementar IA en tu empresa: diagnóstico, priorización, piloto y escalamiento. Agenda tu diagnóstico gratuito con Elevate 7 IA.';
 const publishedTime = '2026-07-10';
-const modifiedTime = '2026-07-10';
+const modifiedTime = '2026-07-20';
 
 const articleSchema = {
   '@context': 'https://schema.org',
@@ -96,6 +96,28 @@ const breadcrumbSchema = {
       <h2 class="pt-4 text-2xl font-bold text-white sm:text-3xl">Errores comunes al implementar IA en la empresa</h2>
       <p>
         Hay cuatro errores que aparecen una y otra vez en implementaciones que fracasan. El primero es intentar automatizar un proceso que ni siquiera está documentado ni es consistente internamente — si dos personas del equipo lo hacen de forma distinta, automatizarlo solo escala el caos existente. El segundo es la falta de un patrocinador ejecutivo: sin alguien con autoridad real que defienda el proyecto internamente, cualquier fricción menor lo mata antes de mostrar resultados. El tercero es elegir la herramienta antes de definir el problema — decidir que "queremos usar IA generativa" sin haber identificado qué proceso específico se va a mejorar casi siempre termina en un proyecto sin dueño claro ni métrica de éxito. El cuarto es ignorar la gestión del cambio con el equipo: si las personas que van a convivir con la automatización no entienden por qué existe ni qué gana con ella, la resistencia — activa o pasiva — puede hundir una implementación técnicamente correcta.
+      </p>
+
+      <h2 class="pt-4 text-2xl font-bold text-white sm:text-3xl">Cómo calcular el ROI antes de invertir</h2>
+      <p>
+        Antes de aprobar cualquier presupuesto de automatización, conviene hacer una cuenta simple que evita sorpresas después. Empieza por el costo actual del proceso manual: horas semanales que le dedica el equipo multiplicadas por el costo por hora de esa persona (salario más carga prestacional dividido entre horas trabajadas al mes). Súmale el costo de los errores que genera hacerlo manualmente — un lead que se pierde por demora en el contacto, un reporte con datos desactualizados que lleva a una mala decisión. Ese es tu costo actual real, no solo el que aparece en la nómina. Compáralo contra el costo mensual de la automatización — la tarifa de la agencia más el costo de las APIs de IA que use el sistema — y vas a tener un número concreto de meses para el punto de equilibrio. En procesos de alto volumen, ese punto de equilibrio suele llegar entre el segundo y el cuarto mes; si tu cálculo da un retorno a dos años o más, probablemente el proceso elegido no era el correcto para empezar, o el alcance del proyecto es más amplio de lo que tu operación necesita hoy.
+      </p>
+
+      <h2 class="pt-4 text-2xl font-bold text-white sm:text-3xl">Preguntas frecuentes</h2>
+
+      <h3 class="pt-2 text-xl font-semibold text-white">¿Quién dentro de la empresa debería liderar la implementación?</h3>
+      <p>
+        Idealmente alguien con autoridad para tomar decisiones sobre el proceso que se va a automatizar — no necesariamente el gerente general, pero sí alguien que pueda destrabar recursos y resolver fricciones internas rápido. Ese patrocinador interno es distinto de la persona que opera el sistema día a día: el primero defiende el proyecto ante la organización, el segundo se asegura de que funcione y avisa cuando algo falla.
+      </p>
+
+      <h3 class="pt-2 text-xl font-semibold text-white">¿Qué pasa si el piloto de dos semanas no muestra los resultados esperados?</h3>
+      <p>
+        Es información valiosa, no un fracaso. Un piloto que no cumple la métrica definida generalmente señala uno de dos problemas: el proceso elegido tenía más variabilidad de la que se pensó, o la métrica de éxito no estaba bien calibrada desde el inicio. En cualquiera de los dos casos, se ajusta el enfoque con datos reales en mano y se vuelve a probar — es mucho más barato descubrir esto en un piloto de dos semanas que después de haber escalado la automatización a toda la empresa.
+      </p>
+
+      <h3 class="pt-2 text-xl font-semibold text-white">¿Cada cuánto hay que revisar una automatización ya en producción?</h3>
+      <p>
+        Una revisión trimestral es un buen punto de partida para la mayoría de los procesos: suficiente para detectar si el volumen cambió, si aparecieron nuevas excepciones que el sistema no maneja bien, o si vale la pena ampliar el alcance. Procesos de alto riesgo o alto volumen —como aprobaciones financieras o atención al cliente masiva— conviene revisarlos mensualmente al principio, y espaciar la frecuencia una vez que el sistema demuestre estabilidad.
       </p>
 
       <p>

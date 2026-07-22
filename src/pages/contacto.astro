@@ -49,12 +49,7 @@ const breadcrumbSchema = {
       <h2 class="text-3xl font-bold sm:text-4xl">Cuéntanos qué necesitas</h2>
     </div>
     <div class="mx-auto grid max-w-5xl grid-cols-1 gap-8 lg:grid-cols-[1.2fr_1fr]">
-      <form
-        class="card space-y-5"
-        action="mailto:elevate7.contact@gmail.com"
-        method="POST"
-        enctype="text/plain"
-      >
+      <form id="contact-form" class="card space-y-5">
         <div class="grid grid-cols-1 gap-5 sm:grid-cols-2">
           <div>
             <label for="name" class="mb-2 block text-sm font-medium text-slate-300">Nombre</label>
@@ -105,13 +100,27 @@ const breadcrumbSchema = {
           ></textarea>
         </div>
 
-        <button type="submit" class="btn-primary w-full sm:w-auto">Enviar mensaje</button>
+        <button type="submit" id="contact-submit" class="btn-primary w-full sm:w-auto">
+          Enviar por WhatsApp
+        </button>
+        <p class="text-xs text-slate-500">Al enviar, se abre WhatsApp con tu mensaje ya redactado.</p>
       </form>
 
       <div class="space-y-6">
         <div class="card">
           <h2 class="text-lg font-semibold text-white">Contacto directo</h2>
           <ul class="mt-4 space-y-3 text-sm text-slate-400">
+            <li>
+              <span class="block text-slate-500">WhatsApp</span>
+              <a
+                href="https://wa.me/573153973371"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-white hover:text-brand-300"
+              >
+                +57 315 397 3371
+              </a>
+            </li>
             <li>
               <span class="block text-slate-500">Email</span>
               <a href="mailto:elevate7.contact@gmail.com" class="text-white hover:text-brand-300">
@@ -141,3 +150,38 @@ const breadcrumbSchema = {
     </div>
   </section>
 </BaseLayout>
+
+<script>
+  const WHATSAPP_NUMBER = '573153973371';
+
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  const submitBtn = document.getElementById('contact-submit') as HTMLButtonElement | null;
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const name = (document.getElementById('name') as HTMLInputElement)?.value.trim();
+    const company = (document.getElementById('company') as HTMLInputElement)?.value.trim();
+    const email = (document.getElementById('email') as HTMLInputElement)?.value.trim();
+    const message = (document.getElementById('message') as HTMLTextAreaElement)?.value.trim();
+
+    const lines = [
+      `Hola, soy ${name}${company ? ` de ${company}` : ''}.`,
+      `Mi correo: ${email}`,
+      '',
+      message,
+    ];
+
+    const text = encodeURIComponent(lines.join('\n'));
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
+
+    if (submitBtn) {
+      submitBtn.textContent = 'Abriendo WhatsApp...';
+      setTimeout(() => {
+        submitBtn.textContent = 'Enviar por WhatsApp';
+      }, 2500);
+    }
+
+    window.open(url, '_blank', 'noopener,noreferrer');
+  });
+</script>

@@ -81,6 +81,19 @@ const schemaList = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
 
     <link rel="alternate" type="application/rss+xml" title="Elevate 7 IA Blog" href="/blog" />
 
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VV0M7ZPH35"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(...args: unknown[]) {
+        dataLayer.push(args);
+      }
+      // @ts-ignore
+      gtag('js', new Date());
+      // @ts-ignore
+      gtag('config', 'G-VV0M7ZPH35');
+    </script>
+
     {schemaList.map((s) => (
       <script type="application/ld+json" set:html={JSON.stringify(s)} />
     ))}

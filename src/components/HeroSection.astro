@@ -1,0 +1,117 @@
+---
+interface Node {
+  label: string;
+  icon: 'chat' | 'funnel' | 'calendar' | 'gear' | 'trending' | 'chart';
+  top: number;
+  left: number;
+}
+
+const NODES: Node[] = [
+  { label: 'Atención al Cliente IA', icon: 'chat', top: 12, left: 50 },
+  { label: 'Calificación de Leads IA', icon: 'funnel', top: 31, left: 83 },
+  { label: 'Agendamiento IA', icon: 'calendar', top: 69, left: 83 },
+  { label: 'Operaciones IA', icon: 'gear', top: 88, left: 50 },
+  { label: 'Ventas IA', icon: 'trending', top: 69, left: 17 },
+  { label: 'Reportes IA', icon: 'chart', top: 31, left: 17 },
+];
+
+const ICONS: Record<Node['icon'], string> = {
+  chat: 'M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 0 1-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8Z',
+  funnel: 'M3 4h18l-7 8v6l-4 2v-8L3 4Z',
+  calendar: 'M8 3v4M16 3v4M4 10h16M6 6h12a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z',
+  gear: 'M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 5h10a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Zm2 4h6v6H9V9Z',
+  trending: 'M3 17l6-6 4 4 8-8M15 7h6v6',
+  chart: 'M3 3v18h18M8 17V11M13 17V7M18 17v-4',
+};
+---
+
+<section class="w-full bg-gradient-to-b from-[#0a1a0f] to-[#0d2010]">
+  <div class="mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-16 px-6 py-20 sm:px-8 md:grid-cols-2 lg:py-28">
+    <!-- Copy -->
+    <div class="text-center md:text-left">
+      <h1 class="font-display leading-tight text-white">
+        <span class="block text-2xl font-bold sm:text-3xl lg:text-4xl">Tu empresa ya tiene empleados.</span>
+        <span class="mt-3 block text-3xl font-extrabold sm:text-4xl lg:text-5xl">
+          Ahora dale un equipo de IA que trabaja 24/7.
+        </span>
+      </h1>
+
+      <p class="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-slate-300 md:mx-0">
+        Creamos agentes de inteligencia artificial que responden clientes, califican leads, agendan reuniones,
+        ejecutan procesos y trabajan junto a tu equipo para aumentar ventas y reducir costos operativos.
+      </p>
+
+      <div class="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center md:justify-start">
+        <a href="/contacto#opciones" class="btn-primary">
+          <span aria-hidden="true">🟢</span> Crear mi equipo de IA
+        </a>
+        <a href="/casos" class="btn-secondary">Ver demostración</a>
+      </div>
+    </div>
+
+    <!-- Illustration -->
+    <div class="relative mx-auto aspect-square w-full max-w-sm md:max-w-lg">
+      <!-- Glow connection lines (decorative) -->
+      <svg
+        viewBox="0 0 100 100"
+        preserveAspectRatio="none"
+        class="absolute inset-0 h-full w-full"
+        aria-hidden="true"
+      >
+        <defs>
+          <filter id="hero-glow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="1.6" result="blur" />
+            <feMerge>
+              <feMergeNode in="blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        </defs>
+        {NODES.map((node, i) => (
+          <g
+            class="motion-safe:animate-pulse motion-reduce:animate-none"
+            style={`animation-delay:${i * 180}ms`}
+          >
+            <line
+              x1="50"
+              y1="50"
+              x2={node.left}
+              y2={node.top}
+              stroke="#22ff88"
+              stroke-width="0.5"
+              stroke-linecap="round"
+              filter="url(#hero-glow)"
+              opacity="0.65"
+            />
+            <circle cx={node.left} cy={node.top} r="1.1" fill="#5dffab" filter="url(#hero-glow)" />
+          </g>
+        ))}
+      </svg>
+
+      <!-- Central CEO node -->
+      <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+        <svg viewBox="0 0 100 100" class="h-24 w-24 sm:h-28 sm:w-28" aria-hidden="true">
+          <circle cx="50" cy="50" r="30" fill="#22ff88" opacity="0.16" class="motion-safe:animate-pulse motion-reduce:animate-none" />
+          <circle cx="50" cy="50" r="21" fill="#0d2010" stroke="#5dffab" stroke-width="1.4" />
+          <circle cx="50" cy="44" r="7" fill="#f2f7f4" />
+          <path d="M35 70 C35 58 41 52 50 52 C59 52 65 58 65 70 Z" fill="#f2f7f4" />
+        </svg>
+      </div>
+
+      <!-- Agent nodes -->
+      {NODES.map((node) => (
+        <div
+          class="absolute w-28 -translate-x-1/2 -translate-y-1/2 rounded-2xl border border-white/10 bg-white/[0.04] px-3 py-3 text-center shadow-lg shadow-black/30 backdrop-blur-sm sm:w-32"
+          style={`top:${node.top}%; left:${node.left}%`}
+        >
+          <div class="mx-auto flex h-8 w-8 items-center justify-center rounded-lg bg-accent-500/10 text-accent-400">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4.5 w-4.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+              <path stroke-linecap="round" stroke-linejoin="round" d={ICONS[node.icon]} />
+            </svg>
+          </div>
+          <p class="mt-2 text-[11px] font-semibold leading-tight text-white">{node.label}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

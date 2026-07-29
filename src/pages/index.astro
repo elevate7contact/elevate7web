@@ -4,6 +4,7 @@ import FAQAccordion from '../components/FAQAccordion.astro';
 import ServiceCard from '../components/ServiceCard.astro';
 import ProcessSteps from '../components/ProcessSteps.astro';
 import WorkflowDiagram from '../components/WorkflowDiagram.astro';
+import HeroSection from '../components/HeroSection.astro';
 
 const title = 'Agencia de Automatización con IA para Empresas | Elevate 7 IA';
 const description =
@@ -163,32 +164,7 @@ const processSteps = [
   schema={[organizationSchema, professionalServiceSchema, faqSchema]}
 >
   <!-- Hero -->
-  <section class="section pb-16 pt-20 sm:pt-28">
-    <div class="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-8">
-      <div class="text-center lg:text-left">
-        <span class="eyebrow">Agencia de Automatización con IA · Remoto, cualquier país</span>
-        <h1 class="text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
-          Implementamos Inteligencia Artificial en tu Empresa. Resultados Medibles en 30 Días.
-        </h1>
-        <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-slate-400 lg:mx-0">
-          Convertimos procesos manuales en sistemas inteligentes. Automatización con IA para marketing, ventas y operaciones — sin fricciones técnicas para tu equipo.
-        </p>
-        <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row lg:justify-start">
-          <a href="/contacto#opciones" class="btn-primary">Agenda una llamada gratuita</a>
-          <a href="/casos" class="btn-secondary">Ver casos de éxito</a>
-        </div>
-      </div>
-      <div class="flex justify-center lg:justify-end">
-        <img
-          src="/hero-mascot.webp"
-          alt="Mascota robot de Elevate 7 IA"
-          width="450"
-          height="450"
-          class="w-full max-w-[220px] sm:max-w-xs lg:max-w-sm"
-        />
-      </div>
-    </div>
-  </section>
+  <HeroSection />
 
   <!-- Métricas -->
   <section class="section pb-4 pt-0">

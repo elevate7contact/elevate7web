@@ -10,12 +10,12 @@ interface Entry {
 
 const staticPages: Entry[] = [
   { loc: '/', changefreq: 'weekly', priority: '1.0' },
-  { loc: '/servicios/', changefreq: 'monthly', priority: '0.8' },
-  { loc: '/nosotros/', changefreq: 'monthly', priority: '0.7' },
-  { loc: '/casos/', changefreq: 'monthly', priority: '0.8' },
-  { loc: '/contacto/', changefreq: 'monthly', priority: '0.7' },
-  { loc: '/privacidad/', changefreq: 'yearly', priority: '0.3' },
-  { loc: '/blog/', changefreq: 'weekly', priority: '0.8' },
+  { loc: '/servicios', changefreq: 'monthly', priority: '0.8' },
+  { loc: '/nosotros', changefreq: 'monthly', priority: '0.7' },
+  { loc: '/casos', changefreq: 'monthly', priority: '0.8' },
+  { loc: '/contacto', changefreq: 'monthly', priority: '0.7' },
+  { loc: '/privacidad', changefreq: 'yearly', priority: '0.3' },
+  { loc: '/blog', changefreq: 'weekly', priority: '0.8' },
 ];
 
 // Priority override per blog slug. Any post not listed here (e.g. a new
@@ -36,7 +36,7 @@ const blogPages: Entry[] = Object.keys(blogPostModules)
   .filter((slug): slug is string => Boolean(slug) && slug !== 'index')
   .sort()
   .map((slug) => ({
-    loc: `/blog/${slug}/`,
+    loc: `/blog/${slug}`,
     changefreq: 'monthly',
     priority: blogPriority[slug] ?? '0.7',
   }));

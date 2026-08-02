@@ -97,9 +97,9 @@ const breadcrumbSchema = {
         </div>
 
         <button type="submit" id="contact-submit" class="btn-primary w-full sm:w-auto">
-          Enviar por WhatsApp
+          Enviar mensaje
         </button>
-        <p class="text-xs text-slate-500">Al enviar, se abre WhatsApp con tu mensaje ya redactado.</p>
+        <p id="contact-status" class="text-xs text-slate-500">Te responderemos a tu correo en menos de 24 horas.</p>
       </form>
 
       <div class="space-y-6">
@@ -155,12 +155,11 @@ const breadcrumbSchema = {
 </BaseLayout>
 
 <script>
-  const WHATSAPP_NUMBER = '573153973371';
-
   const form = document.getElementById('contact-form') as HTMLFormElement | null;
   const submitBtn = document.getElementById('contact-submit') as HTMLButtonElement | null;
+  const status = document.getElementById('contact-status') as HTMLParagraphElement | null;
 
-  form?.addEventListener('submit', (e) => {
+  form?.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const name = (document.getElementById('name') as HTMLInputElement)?.value.trim();
@@ -168,23 +167,42 @@ const breadcrumbSchema = {
     const email = (document.getElementById('email') as HTMLInputElement)?.value.trim();
     const message = (document.getElementById('message') as HTMLTextAreaElement)?.value.trim();
 
-    const lines = [
-      `Hola, soy ${name}${company ? ` de ${company}` : ''}.`,
-      `Mi correo: ${email}`,
-      '',
-      message,
-    ];
-
-    const text = encodeURIComponent(lines.join('\n'));
-    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
-
     if (submitBtn) {
-      submitBtn.textContent = 'Abriendo WhatsApp...';
-      setTimeout(() => {
-        submitBtn.textContent = 'Enviar por WhatsApp';
-      }, 2500);
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Enviando...';
+    }
+    if (status) {
+      status.textContent = 'Te responderemos a tu correo en menos de 24 horas.';
+      status.classList.remove('text-red-400', 'text-accent-400');
+      status.classList.add('text-slate-500');
     }
 
-    window.open(url, '_blank', 'noopener,noreferrer');
+    try {
+      const res = await fetch('/api/send-contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, company, email, message }),
+      });
+
+      if (!res.ok) throw new Error('request failed');
+
+      form.reset();
+      if (status) {
+        status.textContent = '¡Mensaje enviado! Te responderemos a tu correo pronto.';
+        status.classList.remove('text-slate-500');
+        status.classList.add('text-accent-400');
+      }
+    } catch {
+      if (status) {
+        status.textContent = 'No se pudo enviar el mensaje. Intenta de nuevo o escríbenos por WhatsApp.';
+        status.classList.remove('text-slate-500');
+        status.classList.add('text-red-400');
+      }
+    } finally {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Enviar mensaje';
+      }
+    }
   });
 </script>

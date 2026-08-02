@@ -1,16 +1,16 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import BookingOptions from '../components/BookingOptions.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BookingOptions from '../../components/BookingOptions.astro';
 
-const title = 'Contacto — Agenda tu Diagnóstico Gratuito | Elevate 7 IA';
+const title = 'Contact — Book Your Free Diagnostic | Elevate 7 IA';
 const description =
-  'Escríbenos y agenda una llamada gratuita con Elevate 7 IA. Te decimos qué procesos automatizar primero en tu empresa y con qué retorno esperado.';
+  'Write to us and book a free call with Elevate 7 IA. We’ll tell you which processes to automate first in your business and what return to expect.';
 
 const contactPageSchema = {
   '@context': 'https://schema.org',
   '@type': 'ContactPage',
-  name: 'Contacto — Elevate 7 IA',
-  url: 'https://elevatezevenia.com/contacto',
+  name: 'Contact — Elevate 7 IA',
+  url: 'https://elevatezevenia.com/en/contacto',
   about: {
     '@type': 'Organization',
     name: 'Elevate 7 IA',
@@ -22,16 +22,17 @@ const breadcrumbSchema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://elevatezevenia.com/' },
-    { '@type': 'ListItem', position: 2, name: 'Contacto', item: 'https://elevatezevenia.com/contacto' },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://elevatezevenia.com/en' },
+    { '@type': 'ListItem', position: 2, name: 'Contact', item: 'https://elevatezevenia.com/en/contacto' },
   ],
 };
 ---
 
 <BaseLayout
+  lang="en"
   title={title}
   description={description}
-  path="/contacto"
+  path="/en/contacto"
   schema={[contactPageSchema, breadcrumbSchema]}
   alternateLangs={[
     { lang: 'es', path: '/contacto' },
@@ -40,41 +41,41 @@ const breadcrumbSchema = {
 >
   <section class="section pb-8 pt-20 sm:pt-24">
     <div class="mx-auto max-w-3xl text-center">
-      <span class="eyebrow">Contacto</span>
-      <h1 class="text-4xl font-bold leading-tight sm:text-5xl">Hablemos de tu Empresa</h1>
+      <span class="eyebrow">Contact</span>
+      <h1 class="text-4xl font-bold leading-tight sm:text-5xl">Let's Talk About Your Business</h1>
       <p class="mx-auto mt-6 max-w-2xl text-lg text-slate-400">
-        Cuéntanos qué proceso te quita más tiempo. En la primera llamada te decimos si tiene sentido automatizarlo y con qué retorno esperado — sin compromiso.
+        Tell us which process takes up most of your time. On the first call we'll tell you if it makes sense to automate it and what return to expect — no commitment.
       </p>
     </div>
   </section>
 
   <section id="formulario" class="section pt-0">
     <div class="mb-10 text-center">
-      <span class="eyebrow">Escríbenos</span>
-      <h2 class="text-3xl font-bold sm:text-4xl">Cuéntanos qué necesitas</h2>
+      <span class="eyebrow">Write to us</span>
+      <h2 class="text-3xl font-bold sm:text-4xl">Tell us what you need</h2>
     </div>
     <div class="mx-auto grid max-w-5xl grid-cols-1 gap-8 lg:grid-cols-[1.2fr_1fr]">
       <form id="contact-form" class="card space-y-5">
         <div class="grid grid-cols-1 gap-5 sm:grid-cols-2">
           <div>
-            <label for="name" class="mb-2 block text-sm font-medium text-slate-300">Nombre</label>
+            <label for="name" class="mb-2 block text-sm font-medium text-slate-300">Name</label>
             <input
               type="text"
               id="name"
-              name="Nombre"
+              name="Name"
               required
               class="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition focus:border-brand-400"
-              placeholder="Tu nombre"
+              placeholder="Your name"
             />
           </div>
           <div>
-            <label for="company" class="mb-2 block text-sm font-medium text-slate-300">Empresa</label>
+            <label for="company" class="mb-2 block text-sm font-medium text-slate-300">Company</label>
             <input
               type="text"
               id="company"
-              name="Empresa"
+              name="Company"
               class="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition focus:border-brand-400"
-              placeholder="Nombre de tu empresa"
+              placeholder="Your company name"
             />
           </div>
         </div>
@@ -87,33 +88,33 @@ const breadcrumbSchema = {
             name="Email"
             required
             class="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition focus:border-brand-400"
-            placeholder="tu@empresa.com"
+            placeholder="you@company.com"
           />
         </div>
 
         <div>
           <label for="message" class="mb-2 block text-sm font-medium text-slate-300">
-            ¿Qué proceso te gustaría automatizar?
+            What process would you like to automate?
           </label>
           <textarea
             id="message"
-            name="Mensaje"
+            name="Message"
             rows="5"
             required
             class="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition focus:border-brand-400"
-            placeholder="Cuéntanos brevemente sobre tu empresa y el problema que quieres resolver"
+            placeholder="Tell us briefly about your company and the problem you want to solve"
           ></textarea>
         </div>
 
         <button type="submit" id="contact-submit" class="btn-primary w-full sm:w-auto">
-          Enviar mensaje
+          Send message
         </button>
-        <p id="contact-status" class="text-xs text-slate-500">Te responderemos a tu correo en menos de 24 horas.</p>
+        <p id="contact-status" class="text-xs text-slate-500">We'll reply to your email within 24 hours.</p>
       </form>
 
       <div class="space-y-6">
         <div class="card">
-          <h2 class="text-lg font-semibold text-white">Contacto directo</h2>
+          <h2 class="text-lg font-semibold text-white">Direct contact</h2>
           <ul class="mt-4 space-y-3 text-sm text-slate-400">
             <li>
               <span class="block text-slate-500">WhatsApp</span>
@@ -126,7 +127,7 @@ const breadcrumbSchema = {
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="h-4 w-4 fill-current">
                   <path d="M16.003 2.667C8.638 2.667 2.667 8.638 2.667 16c0 2.354.627 4.562 1.72 6.468L2.667 29.333l7.07-1.697A13.27 13.27 0 0 0 16.003 29.333C23.365 29.333 29.333 23.362 29.333 16S23.365 2.667 16.003 2.667zm0 2.4c5.977 0 10.93 4.953 10.93 10.933s-4.953 10.933-10.93 10.933a10.9 10.9 0 0 1-5.563-1.52l-.394-.237-4.196 1.007.998-3.998-.262-.411A10.9 10.9 0 0 1 5.07 16c0-5.98 4.953-10.933 10.933-10.933zm-3.17 5.6c-.215 0-.563.08-.858.4-.295.32-1.128 1.102-1.128 2.686s1.155 3.117 1.315 3.332c.16.215 2.264 3.456 5.492 4.71 2.72 1.052 3.27.843 3.858.79.587-.053 1.896-.775 2.164-1.523.268-.748.268-1.39.187-1.523-.08-.134-.294-.214-.615-.374-.32-.16-1.896-.937-2.19-1.044-.295-.107-.51-.16-.724.16-.214.32-.83 1.044-.99 1.258-.16.215-.348.24-.669.08-.32-.16-1.35-.498-2.572-1.588-.95-.849-1.59-1.896-1.777-2.217-.186-.32-.02-.494.14-.654.144-.144.32-.374.48-.561.16-.187.214-.32.32-.534.107-.214.054-.4-.027-.56-.08-.16-.724-1.746-.99-2.39-.267-.643-.534-.535-.724-.535z" />
                 </svg>
-                Escríbenos por WhatsApp
+                Message us on WhatsApp
               </a>
             </li>
             <li>
@@ -136,22 +137,22 @@ const breadcrumbSchema = {
               </a>
             </li>
             <li>
-              <span class="block text-slate-500">Ubicación</span>
-              <span class="text-white">Bogotá, Colombia — atención remota worldwide</span>
+              <span class="block text-slate-500">Location</span>
+              <span class="text-white">Bogotá, Colombia — remote worldwide</span>
             </li>
             <li>
-              <span class="block text-slate-500">Horario</span>
-              <span class="text-white">Lunes a viernes, 9:00 a.m. – 6:00 p.m. (COT)</span>
+              <span class="block text-slate-500">Hours</span>
+              <span class="text-white">Monday to Friday, 9:00 a.m. – 6:00 p.m. (COT)</span>
             </li>
           </ul>
         </div>
 
         <div class="card">
-          <h2 class="text-lg font-semibold text-white">¿Qué pasa después de escribirnos?</h2>
+          <h2 class="text-lg font-semibold text-white">What happens after you write to us?</h2>
           <ol class="mt-4 space-y-3 text-sm text-slate-400">
-            <li><span class="font-semibold text-accent-400">1.</span> Agendamos una llamada de 30 minutos.</li>
-            <li><span class="font-semibold text-accent-400">2.</span> Revisamos tus procesos actuales y detectamos oportunidades.</li>
-            <li><span class="font-semibold text-accent-400">3.</span> Te enviamos una propuesta con alcance, tiempos y retorno esperado.</li>
+            <li><span class="font-semibold text-accent-400">1.</span> We schedule a 30-minute call.</li>
+            <li><span class="font-semibold text-accent-400">2.</span> We review your current processes and spot opportunities.</li>
+            <li><span class="font-semibold text-accent-400">3.</span> We send you a proposal with scope, timeline, and expected return.</li>
           </ol>
         </div>
       </div>
@@ -159,7 +160,7 @@ const breadcrumbSchema = {
   </section>
 
   <section class="section pt-0">
-    <BookingOptions />
+    <BookingOptions lang="en" />
   </section>
 </BaseLayout>
 
@@ -178,10 +179,10 @@ const breadcrumbSchema = {
 
     if (submitBtn) {
       submitBtn.disabled = true;
-      submitBtn.textContent = 'Enviando...';
+      submitBtn.textContent = 'Sending...';
     }
     if (status) {
-      status.textContent = 'Te responderemos a tu correo en menos de 24 horas.';
+      status.textContent = "We'll reply to your email within 24 hours.";
       status.classList.remove('text-red-400', 'text-accent-400');
       status.classList.add('text-slate-500');
     }
@@ -197,20 +198,20 @@ const breadcrumbSchema = {
 
       form.reset();
       if (status) {
-        status.textContent = '¡Mensaje enviado! Te responderemos a tu correo pronto.';
+        status.textContent = 'Message sent! We’ll reply to your email soon.';
         status.classList.remove('text-slate-500');
         status.classList.add('text-accent-400');
       }
     } catch {
       if (status) {
-        status.textContent = 'No se pudo enviar el mensaje. Intenta de nuevo o escríbenos por WhatsApp.';
+        status.textContent = 'Something went wrong sending the message. Try again or message us on WhatsApp.';
         status.classList.remove('text-slate-500');
         status.classList.add('text-red-400');
       }
     } finally {
       if (submitBtn) {
         submitBtn.disabled = false;
-        submitBtn.textContent = 'Enviar mensaje';
+        submitBtn.textContent = 'Send message';
       }
     }
   });

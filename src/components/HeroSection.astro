@@ -1,4 +1,10 @@
 ---
+export interface Props {
+  lang?: 'es' | 'en';
+}
+
+const { lang = 'es' } = Astro.props;
+
 interface Node {
   label: string;
   icon: 'chat' | 'funnel' | 'calendar' | 'gear' | 'trending' | 'chart';
@@ -6,14 +12,50 @@ interface Node {
   left: number;
 }
 
-const NODES: Node[] = [
-  { label: 'Agente de Atención', icon: 'chat', top: 12, left: 50 },
-  { label: 'Agente Comercial', icon: 'funnel', top: 31, left: 83 },
-  { label: 'Agente de Agenda', icon: 'calendar', top: 69, left: 83 },
-  { label: 'Operador IA', icon: 'gear', top: 88, left: 50 },
-  { label: 'Agente de Ventas', icon: 'trending', top: 69, left: 17 },
-  { label: 'Analista IA', icon: 'chart', top: 31, left: 17 },
-];
+const NODES_BY_LANG: Record<'es' | 'en', Node[]> = {
+  es: [
+    { label: 'Agente de Atención', icon: 'chat', top: 12, left: 50 },
+    { label: 'Agente Comercial', icon: 'funnel', top: 31, left: 83 },
+    { label: 'Agente de Agenda', icon: 'calendar', top: 69, left: 83 },
+    { label: 'Operador IA', icon: 'gear', top: 88, left: 50 },
+    { label: 'Agente de Ventas', icon: 'trending', top: 69, left: 17 },
+    { label: 'Analista IA', icon: 'chart', top: 31, left: 17 },
+  ],
+  en: [
+    { label: 'Support Agent', icon: 'chat', top: 12, left: 50 },
+    { label: 'Sales Agent', icon: 'funnel', top: 31, left: 83 },
+    { label: 'Scheduling Agent', icon: 'calendar', top: 69, left: 83 },
+    { label: 'AI Operator', icon: 'gear', top: 88, left: 50 },
+    { label: 'Deal Agent', icon: 'trending', top: 69, left: 17 },
+    { label: 'AI Analyst', icon: 'chart', top: 31, left: 17 },
+  ],
+};
+
+const COPY = {
+  es: {
+    title1: 'Tu empresa ya tiene empleados.',
+    title2: 'Ahora dale un equipo de IA que trabaja 24/7.',
+    subtitle:
+      'Creamos agentes de inteligencia artificial que responden clientes, califican leads, agendan reuniones, ejecutan procesos y trabajan junto a tu equipo para aumentar ventas y reducir costos operativos.',
+    ctaPrimary: 'Crear mi equipo de IA',
+    ctaPrimaryHref: '/contacto#formulario',
+    ctaSecondary: 'Ver casos de éxito',
+    ctaSecondaryHref: '/casos',
+  },
+  en: {
+    title1: 'Your company already has employees.',
+    title2: 'Now give it an AI team that works 24/7.',
+    subtitle:
+      'We build AI agents that respond to customers, qualify leads, book meetings, run processes, and work alongside your team to grow sales and cut operating costs.',
+    ctaPrimary: 'Build my AI team',
+    ctaPrimaryHref: '/en/contacto#formulario',
+    ctaSecondary: 'See success stories',
+    ctaSecondaryHref: '/casos',
+  },
+};
+
+const NODES = NODES_BY_LANG[lang];
+const t = COPY[lang];
 
 const ICONS: Record<Node['icon'], string> = {
   chat: 'M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 0 1-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8Z',
@@ -30,22 +72,21 @@ const ICONS: Record<Node['icon'], string> = {
     <!-- Copy -->
     <div class="text-center md:text-left">
       <h1 class="font-display leading-tight text-white">
-        <span class="block text-2xl font-bold sm:text-3xl lg:text-4xl">Tu empresa ya tiene empleados.</span>
+        <span class="block text-2xl font-bold sm:text-3xl lg:text-4xl">{t.title1}</span>
         <span class="mt-3 block text-3xl font-extrabold sm:text-4xl lg:text-5xl">
-          Ahora dale un equipo de IA que trabaja 24/7.
+          {t.title2}
         </span>
       </h1>
 
       <p class="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-slate-300 md:mx-0">
-        Creamos agentes de inteligencia artificial que responden clientes, califican leads, agendan reuniones,
-        ejecutan procesos y trabajan junto a tu equipo para aumentar ventas y reducir costos operativos.
+        {t.subtitle}
       </p>
 
       <div class="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center md:justify-start">
-        <a href="/contacto#formulario" class="btn-primary">
-          <span aria-hidden="true">🟢</span> Crear mi equipo de IA
+        <a href={t.ctaPrimaryHref} class="btn-primary">
+          <span aria-hidden="true">🟢</span> {t.ctaPrimary}
         </a>
-        <a href="/casos" class="btn-secondary">Ver casos de éxito</a>
+        <a href={t.ctaSecondaryHref} class="btn-secondary">{t.ctaSecondary}</a>
       </div>
     </div>
 

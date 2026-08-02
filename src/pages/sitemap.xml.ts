@@ -16,6 +16,8 @@ const staticPages: Entry[] = [
   { loc: '/contacto', changefreq: 'monthly', priority: '0.7' },
   { loc: '/privacidad', changefreq: 'yearly', priority: '0.3' },
   { loc: '/blog', changefreq: 'weekly', priority: '0.8' },
+  { loc: '/en', changefreq: 'weekly', priority: '0.9' },
+  { loc: '/en/contacto', changefreq: 'monthly', priority: '0.7' },
 ];
 
 // Priority override per blog slug. Any post not listed here (e.g. a new

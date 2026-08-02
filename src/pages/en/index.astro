@@ -1,0 +1,277 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FAQAccordion from '../../components/FAQAccordion.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import ProcessSteps from '../../components/ProcessSteps.astro';
+import WorkflowDiagram from '../../components/WorkflowDiagram.astro';
+import HeroSection from '../../components/HeroSection.astro';
+
+const title = 'AI Automation Agency for Businesses | Elevate 7 IA';
+const description =
+  'We implement AI in your marketing, sales and operations. Measurable results in 30 days. Remote agency, serving any country.';
+
+const faqs = [
+  {
+    question: 'What is an AI automation agency?',
+    answer:
+      'An AI automation agency designs and implements systems that eliminate repetitive manual tasks using artificial intelligence. This includes automated workflows that move data between systems, agents that qualify leads without human intervention, ad campaigns that optimize themselves, and reports generated without manual work. At Elevate 7 IA we work with businesses in any country to integrate these solutions practically, with measurable results from the first few weeks.',
+  },
+  {
+    question: 'How much does it cost to implement AI automation?',
+    answer:
+      'The cost depends on scope. Basic automation projects — an n8n workflow, a lead-qualification agent, CRM integration — start at $500 USD per month. More complex projects with multiple agents, custom integrations, and automated dashboards are quoted by scope after a free diagnostic session. We work on a flat monthly-fee model, with no surprises or variable costs.',
+  },
+  {
+    question: 'What AI tools do you use to automate processes?',
+    answer:
+      'Our core stack includes n8n and Make for workflow orchestration, Claude (Anthropic) and OpenAI for intelligent agents, Google Ads and Meta for AI-optimized marketing campaigns, and Looker Studio with BigQuery for automated reporting and dashboards. Every implementation uses the tools that best integrate with the systems the client already has, minimizing adoption friction.',
+  },
+  {
+    question: 'Do you work with companies in any country?',
+    answer:
+      'Yes. We operate 100% remotely and serve clients in any country. We have experience with businesses across Latin America, Spain, and the United States. We work in Spanish or English depending on the client’s preference. Time zone differences have never been an obstacle — we work in weekly sprints with async deliverables that work regardless of time zone.',
+  },
+  {
+    question: 'What industries do you have experience in?',
+    answer:
+      'We have proven experience in healthcare and private clinics, university and institute education, financial services and lending, SaaS companies, real estate, and manufacturing/industrial. In every case the starting point is the same: identify the highest-volume, lowest-value-added processes to automate first, and measure impact before scaling.',
+  },
+];
+
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Elevate 7 IA',
+  url: 'https://elevatezevenia.com',
+  logo: 'https://elevatezevenia.com/logo.png',
+  description:
+    'AI automation agency helping businesses worldwide implement artificial intelligence in marketing, sales and operations. Based in Bogotá, Colombia.',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Bogotá',
+    addressCountry: 'CO',
+  },
+  areaServed: 'Worldwide',
+  serviceType: [
+    'AI Automation',
+    'AI Agents',
+    'Marketing Automation',
+    'Data Analytics Automation',
+    'AI Consulting',
+  ],
+  sameAs: [
+    'https://www.linkedin.com/company/136067034',
+    'https://www.google.com/maps?cid=8987541171022608048',
+  ],
+};
+
+const professionalServiceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'Elevate 7 IA',
+  description:
+    'AI automation agency for businesses worldwide. Specializing in process automation, AI agents, and performance marketing with AI.',
+  url: 'https://elevatezevenia.com/en',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Bogotá',
+    addressRegion: 'Cundinamarca',
+    addressCountry: 'CO',
+  },
+  areaServed: 'Worldwide',
+  priceRange: '$$',
+  openingHours: 'Mo-Fr 09:00-18:00',
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answer,
+    },
+  })),
+};
+
+const industries = [
+  { name: 'Healthcare', description: 'We automate appointment scheduling, inquiry qualification, and patient follow-up with AI agents available 24 hours a day.' },
+  { name: 'Education', description: 'We optimize student recruitment and campaign reporting with data pipelines that eliminate manual analysis work.' },
+  { name: 'Financial services', description: 'We implement automatic application qualification and performance campaigns with clean conversion signals.' },
+  { name: 'SaaS', description: 'We build onboarding agents, first-line support, and product reports that scale without adding headcount.' },
+  { name: 'Real estate', description: 'We automate real-estate lead qualification and explore asset tokenization for new investment models.' },
+  { name: 'Industrial', description: 'We integrate AI into production reporting and data flows between ERP systems for faster decisions.' },
+];
+
+const homeStats = [
+  { value: '-96%', label: 'response time' },
+  { value: '+40%', label: 'appointment conversion' },
+  { value: '8h/week', label: 'saved on reporting' },
+  { value: '-34%', label: 'cost per acquisition' },
+];
+
+const homeFlow = [
+  { icon: 'chat' as const, label: 'WhatsApp' },
+  { icon: 'agent' as const, label: 'AI Agent' },
+  { icon: 'database' as const, label: 'CRM' },
+  { icon: 'bell' as const, label: 'Team notification' },
+];
+
+const services = [
+  { number: '01', title: 'Process Automation', description: 'Workflows with n8n and Make that connect your apps and eliminate manual data entry.' },
+  { number: '02', title: 'AI Agents', description: 'Agents built with Claude and OpenAI that qualify leads, answer inquiries, and analyze documents without human intervention.' },
+  { number: '03', title: 'Marketing with AI', description: 'Google Ads and Meta campaigns optimized with artificial intelligence for better ROAS and lower CPA.' },
+];
+
+const processSteps = [
+  {
+    tag: 'Step 1',
+    title: 'We listen',
+    icon: 'search' as const,
+    description:
+      'We talk with your team and take a close look at how they work today. We look for the tasks that repeat every day and eat up people’s time — that’s the first thing we solve.',
+  },
+  {
+    tag: 'Step 2',
+    title: 'We design and build the plan',
+    icon: 'plan' as const,
+    description:
+      'With that information we put together a simple plan: what can be automated, in what order, and what result to expect. All explained in language anyone at your company can understand.',
+  },
+  {
+    tag: 'Step 3',
+    title: 'We implement',
+    icon: 'build' as const,
+    description:
+      'We build the system and connect it to the tools your team already uses — email, WhatsApp, your spreadsheets, your ads. No one has to learn anything new or complicated.',
+  },
+  {
+    tag: 'Step 4',
+    title: 'We measure results',
+    icon: 'chart' as const,
+    description:
+      'Once everything is running, we show you concrete numbers: time saved, customers served faster, sales improvements. If something isn’t working as expected, we adjust it.',
+  },
+];
+---
+
+<BaseLayout
+  lang="en"
+  title={title}
+  description={description}
+  path="/en"
+  schema={[organizationSchema, professionalServiceSchema, faqSchema]}
+  alternateLangs={[
+    { lang: 'es', path: '/' },
+    { lang: 'en', path: '/en' },
+  ]}
+>
+  <!-- Hero -->
+  <HeroSection lang="en" />
+
+  <!-- Metrics -->
+  <section class="section pb-4 pt-0">
+    <div class="mx-auto grid max-w-4xl grid-cols-2 gap-6 rounded-2xl border border-white/10 bg-white/[0.02] px-6 py-8 sm:grid-cols-4 sm:px-10">
+      {homeStats.map((stat) => (
+        <div class="text-center">
+          <p class="font-display text-3xl font-bold text-accent-400 sm:text-4xl">{stat.value}</p>
+          <p class="mt-1 text-xs text-slate-500 sm:text-sm">{stat.label}</p>
+        </div>
+      ))}
+    </div>
+    <p class="mt-4 text-center text-sm text-slate-500">
+      Real client results. <a href="/casos" class="text-brand-300 hover:underline">See the full case studies →</a>
+    </p>
+  </section>
+
+  <!-- What we do -->
+  <section class="section pt-8">
+    <div class="mx-auto max-w-4xl">
+      <div class="card grid grid-cols-1 items-center gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+        <img
+          src="/team-workspace.jpg"
+          alt="AI automation system working in the background"
+          width="700"
+          height="700"
+          class="w-full rounded-xl object-cover"
+        />
+        <div>
+          <span class="eyebrow">What we do</span>
+          <p class="text-base leading-relaxed text-slate-300 sm:text-lg">
+            We help your company stop wasting time on repetitive tasks. We identify which parts of your day-to-day can run on their own — replying to messages, following up with customers, putting together reports, improving your ads — and we build a system that does it for you, without your team having to learn anything complicated. We work with companies in any country, 100% remote, and every project ends with results you can see and measure, not just promises.
+          </p>
+        </div>
+      </div>
+      <p class="mb-4 mt-8 text-center text-sm font-semibold uppercase tracking-wide text-slate-500">
+        A real example of how it connects
+      </p>
+      <WorkflowDiagram steps={homeFlow} />
+    </div>
+  </section>
+
+  <!-- How it works (interactive infographic) -->
+  <section class="section pt-0">
+    <div class="mb-12 text-center">
+      <span class="eyebrow">How it works</span>
+      <h2 class="text-3xl font-bold sm:text-4xl">The process, step by step</h2>
+      <p class="mx-auto mt-4 max-w-2xl text-slate-400">Tap each number to see what it involves.</p>
+    </div>
+    <ProcessSteps steps={processSteps} />
+  </section>
+
+  <!-- Services teaser -->
+  <section class="section pt-0">
+    <div class="mb-12 text-center">
+      <span class="eyebrow">Services</span>
+      <h2 class="text-3xl font-bold sm:text-4xl">Three fronts, one goal: measurable results</h2>
+    </div>
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+      {services.map((service) => (
+        <ServiceCard number={service.number} title={service.title} description={service.description} />
+      ))}
+    </div>
+    <div class="mt-10 text-center">
+      <a href="/servicios" class="btn-secondary">See all services</a>
+    </div>
+  </section>
+
+  <!-- Industries -->
+  <section class="section pt-0">
+    <div class="mb-12 text-center">
+      <span class="eyebrow">Industries</span>
+      <h2 class="text-3xl font-bold sm:text-4xl">Proven experience across multiple sectors</h2>
+    </div>
+    <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {industries.map((industry) => (
+        <div class="rounded-2xl border border-white/10 bg-white/[0.02] p-6">
+          <h3 class="text-lg font-semibold text-white">{industry.name}</h3>
+          <p class="mt-2 text-sm leading-relaxed text-slate-400">{industry.description}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- CTA band -->
+  <section class="section pt-0">
+    <div class="card mx-auto flex max-w-4xl flex-col items-center gap-6 text-center sm:flex-row sm:justify-between sm:text-left">
+      <div>
+        <h2 class="text-2xl font-bold sm:text-3xl">Ready to automate your business?</h2>
+        <p class="mt-2 text-slate-400">Free initial diagnostic. No commitment.</p>
+      </div>
+      <a href="/en/contacto#opciones" class="btn-primary whitespace-nowrap">Let's talk</a>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section pt-0">
+    <div class="mb-12 text-center">
+      <span class="eyebrow">FAQ</span>
+      <h2 class="text-3xl font-bold sm:text-4xl">Everything you need to know</h2>
+    </div>
+    <div class="mx-auto max-w-3xl">
+      <FAQAccordion items={faqs} />
+    </div>
+  </section>
+</BaseLayout>

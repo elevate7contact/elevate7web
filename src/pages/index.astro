@@ -162,6 +162,10 @@ const processSteps = [
   description={description}
   path="/"
   schema={[organizationSchema, professionalServiceSchema, faqSchema]}
+  alternateLangs={[
+    { lang: 'es', path: '/' },
+    { lang: 'en', path: '/en' },
+  ]}
 >
   <!-- Hero -->
   <HeroSection />

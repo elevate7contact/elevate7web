@@ -22,7 +22,19 @@ const nav =
       ];
 
 const ctaLabel = lang === 'en' ? 'Book a call' : 'Agenda una llamada';
+const ctaHref = lang === 'en' ? '/en/contacto#opciones' : '/contacto#opciones';
 const currentPath = new URL(Astro.request.url).pathname;
+
+const switchTarget =
+  lang === 'en'
+    ? currentPath === '/en/contacto'
+      ? '/contacto'
+      : '/'
+    : currentPath === '/contacto'
+      ? '/en/contacto'
+      : '/en';
+const switchLabel = lang === 'en' ? 'ES' : 'EN';
+const switchLangPref = lang === 'en' ? 'es' : 'en';
 ---
 
 <header class="sticky top-0 z-50 border-b border-white/5 bg-ink-950/80 backdrop-blur-md">
@@ -46,8 +58,15 @@ const currentPath = new URL(Astro.request.url).pathname;
       ))}
     </nav>
 
-    <div class="hidden md:block">
-      <a href="/contacto#opciones" class="btn-primary !px-5 !py-2.5 text-sm">{ctaLabel}</a>
+    <div class="hidden items-center gap-4 md:flex">
+      <a
+        href={switchTarget}
+        data-lang-switch={switchLangPref}
+        class="text-sm font-semibold text-slate-400 transition hover:text-white"
+      >
+        {switchLabel}
+      </a>
+      <a href={ctaHref} class="btn-primary !px-5 !py-2.5 text-sm">{ctaLabel}</a>
     </div>
 
     <button
@@ -73,7 +92,14 @@ const currentPath = new URL(Astro.request.url).pathname;
           {item.label}
         </a>
       ))}
-      <a href="/contacto#opciones" class="btn-primary mt-2 text-sm">{ctaLabel}</a>
+      <a
+        href={switchTarget}
+        data-lang-switch={switchLangPref}
+        class="text-sm font-semibold text-slate-400 transition hover:text-white"
+      >
+        {lang === 'en' ? 'Ver en Español' : 'View in English'}
+      </a>
+      <a href={ctaHref} class="btn-primary mt-2 text-sm">{ctaLabel}</a>
     </nav>
   </div>
 </header>
@@ -90,5 +116,12 @@ const currentPath = new URL(Astro.request.url).pathname;
     iconOpen?.classList.toggle('hidden');
     iconClose?.classList.toggle('hidden');
     toggle.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
+  });
+
+  document.querySelectorAll('[data-lang-switch]').forEach((link) => {
+    link.addEventListener('click', () => {
+      const pref = link.getAttribute('data-lang-switch');
+      document.cookie = `lang_pref=${pref}; path=/; max-age=31536000`;
+    });
   });
 </script>

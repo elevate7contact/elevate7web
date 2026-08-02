@@ -1,6 +1,15 @@
 ---
+export interface Props {
+  lang?: 'es' | 'en';
+}
+
+const { lang = 'es' } = Astro.props;
+
 const WHATSAPP_NUMBER = '573153973371';
-const WHATSAPP_MESSAGE = '¡Hola! Me interesa conocer más sobre los servicios de Elevate 7 IA.';
+const WHATSAPP_MESSAGE =
+  lang === 'en'
+    ? 'Hi! I’d like to learn more about Elevate 7 IA’s services.'
+    : '¡Hola! Me interesa conocer más sobre los servicios de Elevate 7 IA.';
 const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
 ---
 
@@ -8,7 +17,7 @@ const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP
   href={url}
   target="_blank"
   rel="noopener noreferrer"
-  aria-label="Contactar por WhatsApp"
+  aria-label={lang === 'en' ? 'Contact us on WhatsApp' : 'Contactar por WhatsApp'}
   class="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] shadow-lg transition-transform duration-200 hover:scale-110"
   style="box-shadow: 0 4px 24px rgba(37,211,102,0.45);"
 >
